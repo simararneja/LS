@@ -31,7 +31,7 @@ public class RssParseHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ("Item".equalsIgnoreCase(qName)) {
 			currentItem = new RssItem();
-		} else if ("description".equalsIgnoreCase(qName)) {
+		} else if ("description".equalsIgnoreCase(qName) || "Description".equalsIgnoreCase(qName)) {
 			parsingdescription = true;
 		}if ("Link".equalsIgnoreCase(qName)) {
 			parsingLink = true;
@@ -49,7 +49,7 @@ public class RssParseHandler extends DefaultHandler {
 		if ("Item".equals(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
-		} else if ("description".equals(qName)) {
+		} else if ("description".equals(qName)|| "Description".equalsIgnoreCase(qName)) {
 			parsingdescription = false;
 		}else if ("Link".equals(qName)) {
 			parsingLink = false;

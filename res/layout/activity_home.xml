@@ -51,7 +51,7 @@
             <ImageButton
                 android:id="@+id/menu_button"
                 android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_height="match_parent"
                 android:adjustViewBounds="false"
                 android:background="#000000"
                 android:contentDescription="@string/app_menu"

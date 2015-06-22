@@ -31,7 +31,7 @@ public class LoadItems extends Activity {
 		
 		//List items of homscreen sliding menu
 		items = new String[]{"Today's Birthday","Provisional Calender","Question Chart","List Of Business","Bulletin Part - I","Bulletin Part - II","Question List","Daily Synopsis","Notifications","Organisation","Committees"};
-		links = new String[]{"todaybdaylist.aspx","provisionalCalendar.aspx","member_questions.aspx","businessList.aspx","bulletinpart_I.aspx","bulletinpart_II.aspx","starred_UnstarredQuestionList.aspx?member_id=4064","DailySynopsis.aspx","Notifications.aspx","org","com"};
+		links = new String[]{"todaybdaylist.aspx","provisionalCalendar.aspx","member_questions.aspx","businessList.aspx","bulletinpart_I.aspx","bulletinpart_II.aspx","member_questions.aspx","DailySynopsis.aspx","Notifications.aspx","org","com"};
 		type = new String[]{"4","0","0","0","0","0","0","2","0","0","3","5"};
 		websitesbottommenu = new String[] {"Rajya Sabha(English)","Rajya Sabha(Hindi)","Lok Sabha(English)","Lok Sabha(Hindi)","RS Debates"};
 		websitesbottommenulinks = new String[] {"http://loksabhahindi.nic.in","http://loksabha.nic.in","http://rajyasabha.nic.in","http://rajyasabhahindi.nic.in","http://rsdebate.nic.in"};
