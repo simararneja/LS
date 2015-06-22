@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/list_selector"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!-- ListRow Left sied Thumbnail image -->
+
+    <LinearLayout
+        android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="5dip"
+        android:padding="3dip" >
+
+        <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/loading_big" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/flowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dip"
+        android:padding="3dip" >
+
+        <ImageView
+            android:id="@+id/list_imageroses"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/rose" />
+    </LinearLayout>
+
+    <!-- Member's Name -->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Members_Name"
+        android:textColor="#040404"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <!-- DOB -->
+
+    <TextView
+        android:id="@+id/dob"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_marginTop="1dip"
+        android:layout_toLeftOf="@+id/flowers"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Date of birth"
+        android:textColor="#343434"
+        android:textSize="12dip" />
+
+    <!-- Party Name -->
+
+    <TextView
+        android:id="@+id/partyName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dob"
+        android:layout_toLeftOf="@+id/flowers"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="ConstituencyAndState"
+        android:textColor="#343434"
+        android:textSize="14dip" />
+
+    <!-- ConstituencyAndState Name -->
+
+    <TextView
+        android:id="@+id/ConstituencyAndState"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/partyName"
+        android:layout_marginTop="1dip"
+        android:layout_toLeftOf="@+id/flowers"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="ConstituencyAndState"
+        android:textColor="#343434"
+        android:textSize="12dip" />
+
+    <!-- Email Address -->
+
+    <TextView
+        android:id="@+id/emailID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ConstituencyAndState"
+        android:layout_marginTop="1dip"
+        android:layout_toLeftOf="@+id/flowers"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Email address"
+        android:textColor="#343434"
+        android:textSize="12dip" />
+
+</RelativeLayout>

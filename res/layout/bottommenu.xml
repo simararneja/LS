@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Single menu item 
+         Set id, icon and Title for each menu item
+    -->
+    <item android:id="@+id/menu_members"
+          android:title="Members"/>
+ 
+    <item android:id="@+id/menu_live"
+          
+          android:title="Live TV" />
+ 
+    <item android:id="@+id/menu_websites"
+          
+          android:title="Websites" />
+ 
+    <item android:id="@+id/menu_login"
+          
+          android:title="Members' Login" />
+</menu>

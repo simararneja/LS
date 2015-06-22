@@ -1,0 +1,60 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RSMembers" >
+
+    <LinearLayout
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/headerback"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_gravity="center"
+            android:background="@drawable/headernew" />
+
+        <ImageView
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_weight="1"
+            android:src="@drawable/headermargin" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/product_label"
+        android:layout_width="fill_parent"
+        android:layout_height="25dp"
+        android:layout_below="@id/img"
+        android:text="Lok Sabha Members"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtSearchList"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/product_label"
+        android:hint="Search" />
+
+    <ListView
+        android:id="@+id/listFeeds"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/txtSearchList"
+        android:animateLayoutChanges="true"
+        android:background="#ffffff"
+        android:fastScrollEnabled="true"
+        android:keepScreenOn="true"
+        android:paddingBottom="15dip"
+        android:paddingTop="15dip"
+        android:textFilterEnabled="true"
+        android:textSize="20dp" >
+    </ListView>
+
+</RelativeLayout>

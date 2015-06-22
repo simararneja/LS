@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Lok Sabha Business App</string>
+    <string name="hello">Hello</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="app_menu">Menu</string>
+    <string name="title_activity_member_details">Lok Sabha Members</string>
+    <string name="caption_name">Name:</string>
+    <string name="caption_state">State:</string>
+    <string name="caption_Gender">Gender:</string>
+    <string name="title_activity_mem_details_scroll">Lok Sabha Members</string>
+    <string name="title_section1">Members Information</string>
+    <string name="title_section2">Questions</string>
+    <string name="title_section3">Assurances</string>
+    <string name="title_activity_tab_member_details">Lok Sabha Members</string>
+    <string name="title_activity_web_view">WebView</string>
+    <string name="title_activity_web_site">WebSites</string>
+    <string name="title_activity_rsmembers">Lok Sabha Members</string>
+    <string name="title_activity_question_list">Question List</string>
+    <string name="title_activity_org_desig_detail">Lok Sabha</string>
+    <string name="title_activity_org_asjsdirector">Lok Sabha - Secretariat</string>
+    <string name="title_activity_todays_birthday"></string>
+    <string name="title_activity_webview">Details</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>
