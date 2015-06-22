@@ -139,9 +139,10 @@ public class Home extends Activity implements OnClickListener,
 				} else if ((url.contains("bulletinpart_II.aspx"))
 						|| (url.contains("bulletinpart_I.aspx"))
 						|| (url.contains("DailySynopsis.aspx"))) {
-					//tv.setText(liitems.items[position]);
+					/*//tv.setText(liitems.items[position]);
+					HideMenu();*/
 					HideMenu();
-					GetBull2Feeds(url);
+					GetFeeds(url);
 				} else if (url.contains("businessList.aspx")) {
 					//tv.setText("List of Business");
 					HideMenu();
@@ -624,12 +625,6 @@ public class Home extends Activity implements OnClickListener,
 		Log.d("RssReader", Thread.currentThread().getName());
 	}
 
-	public void GetBull2Feeds(String link) {
-		HideMenu();
-		GetBull2RSSDataTask task = new GetBull2RSSDataTask();
-		task.execute(link);
-		Log.d("RssReader", Thread.currentThread().getName());
-	}
 
 	public void GetFeeds(String link) {
 		// HideMenu();
@@ -866,44 +861,6 @@ public class Home extends Activity implements OnClickListener,
 		}
 	}
 
-	private class GetBull2RSSDataTask extends
-			AsyncTask<String, Void, List<Bull2RssItem>> {
-		@Override
-		protected List<Bull2RssItem> doInBackground(String... urls) {
-
-			// Debug the task thread name
-			Log.d("LoMRssReader", Thread.currentThread().getName());
-
-			try {
-				// Create RSS reader
-				Bull2RssReader rssReader = new Bull2RssReader(urls[0]);
-
-				// Parse RSS, get items
-				return rssReader.getItems();
-
-			} catch (Exception e) {
-				Log.e("RssReader", e.getMessage());
-			}
-
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(List<Bull2RssItem> result) {
-			// Get a ListView from main view
-			ListView lv = (ListView) findViewById(R.id.listFeeds);
-
-			// Create a list adapter
-			/*ArrayAdapter<Bull2RssItem> adapter = new ArrayAdapter<Bull2RssItem>(
-					local, android.R.layout.simple_list_item_1, result);*/
-			customlistadpater_feeds listadap = new customlistadpater_feeds(
-					local, R.layout.customlistadapter_feeds, result);
-			// Set list adapter for the ListView
-			lv.setAdapter(listadap);
-			// Set list view item click listener
-			lv.setOnItemClickListener(new Bull2ListListener(result, local));
-
-		}
-	}
+	
 }
 
