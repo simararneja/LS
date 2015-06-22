@@ -46,7 +46,7 @@
             android:label="@string/title_activity_web_site" >
         </activity>
         <activity
-            android:name="com.example.rs.RSMembers"
+            android:name="com.example.rs.LokSabhaMembers"
             android:label="@string/title_activity_rsmembers" >
         </activity>
         <activity

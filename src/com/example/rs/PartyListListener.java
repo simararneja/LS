@@ -25,7 +25,7 @@ public class PartyListListener implements OnItemClickListener {
     @Override
 	public void onItemClick(AdapterView<?> adapter, View view, int pos, long id) {
         // We create an Intent which is going to display data
-        Intent i = new Intent(view.getContext(),RSMembers.class);
+        Intent i = new Intent(view.getContext(),LokSabhaMembers.class);
         // We have to set data for our new Intent
         PartyRssItem sr = (PartyRssItem)adapter.getItemAtPosition(pos);
         String[] values = new String[]{"memparty","p",sr.getParty()};

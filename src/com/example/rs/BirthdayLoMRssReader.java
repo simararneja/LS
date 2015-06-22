@@ -12,7 +12,7 @@ import javax.xml.parsers.SAXParserFactory;
  * @author ITCuties
  *
  */
-public class BLoMRssReader {
+public class BirthdayLoMRssReader {
 	
 	private String rssUrl;
 
@@ -21,7 +21,7 @@ public class BLoMRssReader {
 	 * 
 	 * @param rssUrl
 	 */
-	public BLoMRssReader(String rssUrl) {
+	public BirthdayLoMRssReader(String rssUrl) {
 		this.rssUrl = rssUrl;
 	}
 
@@ -30,12 +30,12 @@ public class BLoMRssReader {
 	 * 
 	 * @return
 	 */
-	public List<BLoMRssItem> getItems() throws Exception {
+	public List<BirthdayWiseLoMRssItem> getItems() throws Exception {
 		// SAX parse RSS data
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser saxParser = factory.newSAXParser();
 
-		BLoMRssParseHandler handler = new BLoMRssParseHandler();
+		BirthdayWiseLoMRssParseHandler handler = new BirthdayWiseLoMRssParseHandler();
 		
 		saxParser.parse(rssUrl, handler);
 

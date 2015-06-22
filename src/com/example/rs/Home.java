@@ -207,7 +207,7 @@ public class Home extends Activity implements OnClickListener,
 						}
 					});
 				} else if (Type == "5") {
-					Intent i = new Intent(local, RSMembers.class);
+					Intent i = new Intent(local, LokSabhaMembers.class);
 					String com[] = new String[] { "comMain" };
 					i.putExtra("values", com);
 					local.startActivity(i);
@@ -284,72 +284,6 @@ public class Home extends Activity implements OnClickListener,
 		//Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
 	}
 
-	/*
-	 * @Override public boolean onCreateOptionsMenu(Menu menu) { // Inflate the
-	 * menu; this adds items to the action bar if it is present. MenuInflater
-	 * menuInflater = getMenuInflater();
-	 * menuInflater.inflate(R.layout.bottommenu, menu); return true;
-	 * /*getMenuInflater().inflate(R.menu.home, menu); return true; }
-	 * 
-	 * @Override public boolean onOptionsItemSelected(MenuItem item) { final
-	 * LoadItems liitems = new LoadItems(); ListView lv; ArrayAdapter<String>
-	 * aa; switch (item.getItemId()) { case R.id.menu_members: lv = (ListView)
-	 * findViewById(R.id.listFeeds); aa = new
-	 * ArrayAdapter<String>(this,android.R
-	 * .layout.simple_list_item_1,liitems.membertypes); lv.setAdapter(aa);
-	 * lv.setClickable(true); lv.setOnItemClickListener(new
-	 * OnItemClickListener() {
-	 * 
-	 * @Override public void onItemClick(AdapterView<?> arg0, View v,int
-	 * position, long arg3) { Intent i = new
-	 * Intent(v.getContext(),RSMembers.class); // We have to set data for our
-	 * new Intent String memTypeVal = liitems.membertypevalues[position];
-	 * String[] values; if(memTypeVal.equalsIgnoreCase("p")) values = new
-	 * String[]{"party",memTypeVal}; else if(memTypeVal.equalsIgnoreCase("s"))
-	 * values = new String[]{"states",memTypeVal}; else
-	 * if(memTypeVal.equalsIgnoreCase("b")) values = new
-	 * String[]{"bday",memTypeVal}; else values = new
-	 * String[]{"members",memTypeVal}; i.putExtra("values", values);
-	 * //i.putExtra("type", "members"); //i.putExtra("position", position); //
-	 * And start activity with our Intent local.startActivity(i); } }); //
-	 * Single menu item is selected do something // Ex: launching new
-	 * activity/screen or show alert message //String url = liitems.urlStart +
-	 * "MemberRss.aspx"; //GetLoMFeeds(url); //Toast.makeText(local,
-	 * "Bookmark is Selected", Toast.LENGTH_SHORT).show(); return true;
-	 * 
-	 * case R.id.menu_live: lv = (ListView) findViewById(R.id.listFeeds); aa =
-	 * new
-	 * ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liitems.
-	 * livebottommenu); lv.setAdapter(aa); lv.setClickable(true);
-	 * lv.setOnItemClickListener(new OnItemClickListener() {
-	 * 
-	 * @Override public void onItemClick(AdapterView<?> arg0, View arg1,int
-	 * position, long arg3) { String url =
-	 * liitems.livebottommenulinks[position]; Intent i = new
-	 * Intent(Intent.ACTION_VIEW); // We have to set data for our new Intent
-	 * i.setData(Uri.parse(url)); // And start activity with our Intent
-	 * local.startActivity(i); } }); return true;
-	 * 
-	 * case R.id.menu_websites: lv = (ListView) findViewById(R.id.listFeeds); aa
-	 * = new
-	 * ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liitems
-	 * .websitesbottommenu); lv.setAdapter(aa); lv.setClickable(true);
-	 * lv.setOnItemClickListener(new OnItemClickListener() {
-	 * 
-	 * @Override public void onItemClick(AdapterView<?> arg0, View arg1,int
-	 * position, long arg3) { String url =
-	 * liitems.websitesbottommenulinks[position]; Intent i = new
-	 * Intent(Intent.ACTION_VIEW); // We have to set data for our new Intent
-	 * i.setData(Uri.parse(url)); // And start activity with our Intent
-	 * local.startActivity(i); } }); return true;
-	 * 
-	 * case R.id.menu_login: // We create an Intent which is going to display
-	 * data Intent i = new Intent(Intent.ACTION_VIEW); // We have to set data
-	 * for our new Intent i.setData(Uri.parse("http://mprs.nic.in")); // And
-	 * start activity with our Intent local.startActivity(i); return true;
-	 * 
-	 * default: return super.onOptionsItemSelected(item); } }
-	 */
 
 	@Override
 	public void onClick(View v) {
@@ -455,7 +389,7 @@ public class Home extends Activity implements OnClickListener,
 		case 1:
 			listView = (ListView) findViewById(R.id.listFeeds);
 			textView = (TextView) findViewById(R.id.product_label);
-			textView.setText("Lok Sabha Members");
+			//textView.setText("Lok Sabha Members");
 			//Adds all the member types to the adapter List
 			aa = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, liitems.membertypes);
@@ -465,7 +399,7 @@ public class Home extends Activity implements OnClickListener,
 				@Override
 				public void onItemClick(AdapterView<?> arg0, View v,
 						int position, long arg3) {
-					Intent i = new Intent(v.getContext(), RSMembers.class);
+					Intent i = new Intent(v.getContext(), LokSabhaMembers.class);
 					// We have to set data for our new Intent
 					String memTypeVal = liitems.membertypevalues[position];
 					String[] values;
@@ -478,9 +412,7 @@ public class Home extends Activity implements OnClickListener,
 					else
 						values = new String[] { "members", memTypeVal };
 					i.putExtra("values", values);
-					// i.putExtra("type", "members");
-					// i.putExtra("position", position);
-					// And start activity with our Intent
+					
 					local.startActivity(i);
 				}
 			});

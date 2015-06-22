@@ -31,7 +31,7 @@ public class PartyRssParseHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ("Member".equalsIgnoreCase(qName)) {
 			currentItem = new PartyRssItem();
-		}else if ("noofmember".equalsIgnoreCase(qName)) {
+		}else if ("MemberCount".equalsIgnoreCase(qName)) {
 			parsingnoofmembers = true;
 		}
 		else if ("Partycode".equalsIgnoreCase(qName)) {
@@ -47,7 +47,7 @@ public class PartyRssParseHandler extends DefaultHandler {
 		if ("Member".equalsIgnoreCase(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
-		}else if ("noofmember".equalsIgnoreCase(qName)) {
+		}else if ("MemberCount".equalsIgnoreCase(qName)) {
 			parsingnoofmembers = false;
 		}
 		else if ("Partycode".equalsIgnoreCase(qName)) {

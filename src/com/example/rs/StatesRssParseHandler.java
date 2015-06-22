@@ -31,13 +31,13 @@ public class StatesRssParseHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ("Member".equalsIgnoreCase(qName)) {
 			currentItem = new StatesRssItem();
-		}else if ("noofmembers".equalsIgnoreCase(qName)) {
+		}else if ("MemberCount".equalsIgnoreCase(qName)) {
 			parsingnoofmembers = true;
 		}
-		else if ("state".equalsIgnoreCase(qName)) {
+		else if ("StateID".equalsIgnoreCase(qName)) {
 			parsingstates = true;
 		}
-		else if ("statename".equalsIgnoreCase(qName)) {
+		else if ("stateName".equalsIgnoreCase(qName)) {
 			parsingstatename = true;
 		}
 	}
@@ -47,13 +47,13 @@ public class StatesRssParseHandler extends DefaultHandler {
 		if ("Member".equalsIgnoreCase(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
-		}else if ("noofmembers".equalsIgnoreCase(qName)) {
+		}else if ("MemberCount".equalsIgnoreCase(qName)) {
 			parsingnoofmembers = false;
 		}
-		else if ("state".equalsIgnoreCase(qName)) {
+		else if ("StateID".equalsIgnoreCase(qName)) {
 			parsingstates = false;
 		}
-		else if ("statename".equalsIgnoreCase(qName)) {
+		else if ("stateName".equalsIgnoreCase(qName)) {
 			parsingstatename = false;
 		}
 	}

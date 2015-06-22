@@ -8,15 +8,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class BLoMListListener implements OnItemClickListener {
+public class BirthdayWiseLoMListListener implements OnItemClickListener {
     // Our listener will contain a reference to the list of RSS Items
     // List item's reference
-    List<BLoMRssItem> listItems;
+    List<BirthdayWiseLoMRssItem> listItems;
     // And a reference to a calling activity
     // Calling activity reference
     Activity activity;
     /** We will set those references in our constructor.*/
-    public BLoMListListener(List<BLoMRssItem> aListItems, Activity anActivity) {
+    public BirthdayWiseLoMListListener(List<BirthdayWiseLoMRssItem> aListItems, Activity anActivity) {
         listItems = aListItems;
         activity  = anActivity;
     }
@@ -26,7 +26,7 @@ public class BLoMListListener implements OnItemClickListener {
 		// TODO Auto-generated method stub
         //Intent i = new Intent(v.getContext(),MemberDetails.class);
     	Intent i = new Intent(v.getContext(),TabMemberDetails.class);
-    	BLoMRssItem lri = (BLoMRssItem) adapter.getItemAtPosition(pos);
+    	BirthdayWiseLoMRssItem lri = (BirthdayWiseLoMRssItem) adapter.getItemAtPosition(pos);
     	//Intent i = new Intent(v.getContext(),WebSite.class);
         //i.putExtra("MP_Code", listItems.get(pos).getMPCode());
     	i.putExtra("MP_Code", lri.getMPCode());

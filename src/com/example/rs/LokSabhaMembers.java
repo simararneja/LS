@@ -20,9 +20,9 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class RSMembers extends Activity {
+public class LokSabhaMembers extends Activity {
 	private Intent i;
-	private RSMembers local;
+	private LokSabhaMembers local;
 	private String menutype;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +42,8 @@ public class RSMembers extends Activity {
 		String urlstart = li.urlStart;
 		menutype = "n";
 		TextView tv = (TextView)findViewById(R.id.product_label);
-		if(strvalues[0].equalsIgnoreCase("members"))
-		{
+		if(strvalues[0].equalsIgnoreCase("members")){
+			
 			if(strvalues[1].equalsIgnoreCase("a"))
 				GetLoMFeeds(urlstart+"all_members.aspx");
 			else if(strvalues[1].equalsIgnoreCase("n"))
@@ -103,7 +103,7 @@ public class RSMembers extends Activity {
 		else if(strvalues[0].equalsIgnoreCase("membday"))
 		{
 			//Toast.makeText(this, urlstart+"MonthwiseMembersBday.aspx?monthname="+strvalues[2] , Toast.LENGTH_LONG).show();
-			GetBLoMFeeds(urlstart+"MonthwiseMembersBday.aspx?monthname="+strvalues[2]);
+			GetBLoMFeeds(urlstart+"junemonth.aspx?monthname="+strvalues[2]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("org"))
 		{
@@ -359,16 +359,16 @@ public class RSMembers extends Activity {
 	    	//hm.SetItems(result);
 	    }
 	}
-	private class GetBLoMRSSDataTask extends AsyncTask<String, Void, List<BLoMRssItem> > {
+	private class GetBLoMRSSDataTask extends AsyncTask<String, Void, List<BirthdayWiseLoMRssItem> > {
 	    @Override
-	    protected List<BLoMRssItem> doInBackground(String... urls) {
+	    protected List<BirthdayWiseLoMRssItem> doInBackground(String... urls) {
 	         
 	        // Debug the task thread name
 	        Log.d("BLoMRssReader", Thread.currentThread().getName());
 	         
 	        try {
 	            // Create RSS reader
-	            BLoMRssReader rssReader = new BLoMRssReader(urls[0]);
+	            BirthdayLoMRssReader rssReader = new BirthdayLoMRssReader(urls[0]);
 	         
 	            // Parse RSS, get items
 	            return rssReader.getItems();
@@ -381,12 +381,12 @@ public class RSMembers extends Activity {
 	    }
 	     
 	    @Override
-	    protected void onPostExecute(List<BLoMRssItem> result) {
+	    protected void onPostExecute(List<BirthdayWiseLoMRssItem> result) {
 	        // Get a ListView from main view
 	        ListView lv = (ListView)findViewById(R.id.listFeeds);
 	                     
 	        // Create a list adapter
-	        final ArrayAdapter<BLoMRssItem> adapter = new ArrayAdapter<BLoMRssItem>(local,android.R.layout.simple_list_item_1, result);
+	        final ArrayAdapter<BirthdayWiseLoMRssItem> adapter = new ArrayAdapter<BirthdayWiseLoMRssItem>(local,android.R.layout.simple_list_item_1, result);
 	        // Set list adapter for the ListView
 	        lv.setAdapter(adapter);
 	        EditText inputSearch = (EditText)findViewById(R.id.txtSearchList);
@@ -411,7 +411,7 @@ public class RSMembers extends Activity {
 	            }
 	        });
 	        // Set list view item click listener
-	        lv.setOnItemClickListener(new BLoMListListener(result, local));
+	        lv.setOnItemClickListener(new BirthdayWiseLoMListListener(result, local));
 	        
 	        //HideMenu();
 	    	//Home hm = new Home();

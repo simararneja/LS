@@ -8,11 +8,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 
-public class BLoMRssParseHandler extends DefaultHandler {
+public class BirthdayWiseLoMRssParseHandler extends DefaultHandler {
 
-	private List<BLoMRssItem> rssItems;
+	private List<BirthdayWiseLoMRssItem> rssItems;
 	
-	private BLoMRssItem currentItem;
+	private BirthdayWiseLoMRssItem currentItem;
 	
 
 	private boolean parsingSno;
@@ -29,18 +29,18 @@ public class BLoMRssParseHandler extends DefaultHandler {
 	private boolean parsingLocalphone;
 	private boolean parsingEmailID;
 	
-	public BLoMRssParseHandler() {
-		rssItems = new ArrayList<BLoMRssItem>();
+	public BirthdayWiseLoMRssParseHandler() {
+		rssItems = new ArrayList<BirthdayWiseLoMRssItem>();
 	}
 	
-	public List<BLoMRssItem> getItems() {
+	public List<BirthdayWiseLoMRssItem> getItems() {
 		return rssItems;
 	}
 	
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ("Members".equals(qName)) {
-			currentItem = new BLoMRssItem();
+			currentItem = new BirthdayWiseLoMRssItem();
 		} else if ("Sno".equals(qName)) {
 			parsingSno = true;
 		} else if ("Gender".equals(qName)) {

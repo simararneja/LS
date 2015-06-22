@@ -25,7 +25,7 @@ public class CommMemListListener implements OnItemClickListener {
 	public void onItemClick(AdapterView<?> adapter, View v, int pos, long id) {
 		// TODO Auto-generated method stub
         //Intent i = new Intent(v.getContext(),MemberDetails.class);
-    	Intent i = new Intent(v.getContext(),RSMembers.class);
+    	Intent i = new Intent(v.getContext(),LokSabhaMembers.class);
     	CommMemRssItem lri = (CommMemRssItem) adapter.getItemAtPosition(pos);
     	//Intent i = new Intent(v.getContext(),WebSite.class);
         //i.putExtra("MP_Code", listItems.get(pos).getMPCode());

@@ -7,7 +7,7 @@ package com.example.rs;
  * @author ITCuties
  *
  */
-public class BLoMRssItem {
+public class BirthdayWiseLoMRssItem {
 	
 	private String Sno;
 	private String MPCode;

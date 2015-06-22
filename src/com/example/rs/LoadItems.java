@@ -24,6 +24,7 @@ public class LoadItems extends Activity {
 	public String[] comLinks;
 	public String[] comShortNames;
 	public String[] comLongNames;
+	public String[] postMonthLink;
 	
 	LoadItems(){
 		
@@ -40,6 +41,7 @@ public class LoadItems extends Activity {
 		membertypes = new String[] {"Alphabetical","State wise","Party wise","B'day wise","Women","Nominated","Council of Ministers"};
 		membertypevalues = new String[] {"a","s","p","b","w","n","c"};
 		months = new String[]{"January","February","March","April","May","June","July","August","September","October","November","December"};
+		postMonthLink = new String[]{"janmonth.aspx?monthname=january","febmonth.aspx?monthname=february","marmonth.aspx?monthname=march","aprmonth.aspx?monthname=april","maymonth.aspx?monthname=may","junmonth.aspx?monthname=june","julmonth.aspx?monthname=july","augustmonth.aspx?monthname=august","septmonth.aspx?monthname=september" };
 		orgDesignations = new String[]{"Speaker","Deputy Speaker","Secretary General","Secretariat"};
 		orgDesignationsValue = new String[]{"c","d","s","o"};
 		comtypes = new String[]{"Financial Committees", "Standing Committees of Lok Sabha","Department Related Standing Committees (RS)","Department Related Standing Committees (LS)","Joint Committees","Adhoc Committees","Select Committees"};
