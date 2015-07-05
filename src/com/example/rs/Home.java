@@ -160,7 +160,7 @@ public class Home extends Activity implements OnClickListener,
 					Intent todayBirthday = new Intent(local, TodaysBirthday.class);
 					local.startActivity(todayBirthday);
 				} else if (Type == "3") {
-					tv.setText(liitems.items[position]);
+					//tv.setText(liitems.items[position]);
 					HideMenu();
 					ListView lv = (ListView) findViewById(R.id.listFeeds);
 					ArrayAdapter<String> aa = new ArrayAdapter<String>(local,
@@ -186,7 +186,7 @@ public class Home extends Activity implements OnClickListener,
 										OrgDesigDetail.class);
 								// We have to set data for our new Intent
 								String[] values;
-								if (memTypeVal == "c")
+								if (memTypeVal == "s")
 									values = new String[] {
 											"Speaker - Lok Sabha",
 											memTypeVal };

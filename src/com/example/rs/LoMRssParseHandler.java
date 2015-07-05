@@ -17,12 +17,12 @@ public class LoMRssParseHandler extends DefaultHandler {
 
 	private boolean parsingSno;
 	private boolean parsingMPCode;
-	private boolean parsingGender;
+	//private boolean parsingGender;
 	private boolean parsingMemberName;
 	private boolean parsingParty;
-	private boolean parsingPartyname;
+	//private boolean parsingPartyname;
 	private boolean parsingState;
-	private boolean parsingstateName;
+	//private boolean parsingstateName;
 	private boolean parsingPermanentAddress;
 	private boolean parsingPermanentphone;
 	private boolean parsingLocalAddress;
@@ -43,25 +43,19 @@ public class LoMRssParseHandler extends DefaultHandler {
 			currentItem = new LoMRssItem();
 		} else if ("Sno".equals(qName)) {
 			parsingSno = true;
-		} else if ("Gender".equals(qName)) {
-			parsingGender = true;
-		}else if ("MPCode".equals(qName)) {
+		}else if ("memberId".equals(qName)) {
 			parsingMPCode = true;
-		}else if ("MemberName".equals(qName)) {
+		}else if ("Name".equals(qName)) {
 			parsingMemberName = true;
 		}else if ("Party".equals(qName)) {
 			parsingParty = true;
-		}else if ("Partyname".equals(qName)) {
-			parsingPartyname = true;
 		}else if ("State".equals(qName)) {
 			parsingState = true;
-		}else if ("stateName".equals(qName)) {
-			parsingstateName = true;
-		}else if ("PermanentAddress".equals(qName)) {
+		}else if ("Paddress".equals(qName)) {
 			parsingPermanentAddress = true;
 		}else if ("Permanentphone".equals(qName)) {
 			parsingPermanentphone = true;
-		}else if ("LocalAddress".equals(qName)) {
+		}else if ("Localaddress".equals(qName)) {
 			parsingLocalAddress = true;
 		}else if ("Localphone".equals(qName)) {
 			parsingLocalphone = true;
@@ -77,25 +71,19 @@ public class LoMRssParseHandler extends DefaultHandler {
 			currentItem = null;
 		} else if ("Sno".equals(qName)) {
 			parsingSno = false;
-		} else if ("Gender".equals(qName)) {
-			parsingGender = false;
-		}else if ("MPCode".equals(qName)) {
+		}else if ("memberId".equals(qName)) {
 			parsingMPCode = false;
 		}else if ("MemberName".equals(qName)) {
 			parsingMemberName = false;
 		}else if ("Party".equals(qName)) {
 			parsingParty = false;
-		}else if ("Partyname".equals(qName)) {
-			parsingPartyname = false;
 		}else if ("State".equals(qName)) {
 			parsingState = false;
-		}else if ("stateName".equals(qName)) {
-			parsingstateName = false;
-		}else if ("PermanentAddress".equals(qName)) {
+		}else if ("Paddress".equals(qName)) {
 			parsingPermanentAddress = false;
 		}else if ("Permanentphone".equals(qName)) {
 			parsingPermanentphone = false;
-		}else if ("LocalAddress".equals(qName)) {
+		}else if ("Localaddress".equals(qName)) {
 			parsingLocalAddress = false;
 		}else if ("Localphone".equals(qName)) {
 			parsingLocalphone = false;
@@ -112,24 +100,15 @@ public class LoMRssParseHandler extends DefaultHandler {
 		}else if (parsingMPCode) {
 		if (currentItem != null) 
 			currentItem.setMPCode(new String(ch, start, length));
-	}else if (parsingGender) {
-		if (currentItem != null) 
-			currentItem.setGender(new String(ch, start, length));
 	}else if (parsingMemberName) {
 		if (currentItem != null) 
 			currentItem.setMemberName(new String(ch, start, length));
 	}else if (parsingParty) {
 		if (currentItem != null) 
 			currentItem.setParty(new String(ch, start, length));
-	}else if (parsingPartyname) {
-		if (currentItem != null) 
-			currentItem.setPartyname(new String(ch, start, length));
 	}else if (parsingState) {
 		if (currentItem != null) 
 			currentItem.setState(new String(ch, start, length));
-	}else if (parsingstateName) {
-		if (currentItem != null) 
-			currentItem.setStateName(new String(ch, start, length));
 	}else if (parsingPermanentAddress) {
 		if (currentItem != null) 
 			currentItem.setPermanentAddress(new String(ch, start, length));

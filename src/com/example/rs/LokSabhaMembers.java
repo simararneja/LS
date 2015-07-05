@@ -45,33 +45,33 @@ public class LokSabhaMembers extends Activity {
 		if(strvalues[0].equalsIgnoreCase("members")){
 			
 			if(strvalues[1].equalsIgnoreCase("a"))
-				GetLoMFeeds(urlstart+"all_members.aspx");
+				getListOfMemberFeeds(urlstart+"all_members.aspx");
 			else if(strvalues[1].equalsIgnoreCase("n"))
 			{
-				GetLoMFeeds(urlstart+"nominatedMemberList.aspx");
+				getListOfMemberFeeds(urlstart+"nominatedMemberList15.aspx");
 				tv.setText("Nominated Members");
 			}
 			else if(strvalues[1].equalsIgnoreCase("c"))
 			{
-				GetLoMFeeds(urlstart+"ConcilOfMinisters.aspx");
+				getListOfMemberFeeds(urlstart+"ConcilOfMinisters.aspx");
 				tv.setText("Council Of Ministers");
 			}
 			else if(strvalues[1].equalsIgnoreCase("w"))
-				{GetLoMFeeds(urlstart+"WomenMembersList.aspx");
+				{getListOfMemberFeeds(urlstart+"WomenMembersList.aspx");
 				tv.setText("Women Members");
 				}
 			else if(strvalues[1].equalsIgnoreCase("b"))
 			{
-				GetLoMFeeds(urlstart+"janmonth.aspx?monthname=january");
+				getListOfMemberFeeds(urlstart+"janmonth.aspx?monthname=january");
 				menutype = "b";
 			}
 			else if(strvalues[1].equalsIgnoreCase("p"))
-			{	GetLoMFeeds(urlstart+"DetailPartyWiseList.aspx?partyID=23");
+			{	getListOfMemberFeeds(urlstart+"DetailPartyWiseList.aspx?partyID=23");
 				menutype = "p";
 			}
 			else if(strvalues[1].equalsIgnoreCase("s"))
 			{	
-				GetLoMFeeds(urlstart+"DetailstateWiseList.aspx?StateName=Andhra Pradesh");
+				getListOfMemberFeeds(urlstart+"DetailstateWiseList.aspx?StateName=Andhra Pradesh");
 				menutype = "s";
 			}
 		}
@@ -94,16 +94,16 @@ public class LokSabhaMembers extends Activity {
 		}
 		else if(strvalues[0].equalsIgnoreCase("memstate"))
 		{
-			GetLoMFeeds(urlstart+"DetailstateWiseList.aspx?StateName="+strvalues[2]);
+			getListOfMemberFeeds(urlstart+"DetailstateWiseList.aspx?StateName="+strvalues[2]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("memparty"))
 		{
-			GetLoMFeeds(urlstart+"DetailPartyWiseList.aspx?partyID="+strvalues[2]);
+			getListOfMemberFeeds(urlstart+"DetailPartyWiseList.aspx?partyID="+strvalues[2]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("membday"))
 		{
 			//Toast.makeText(this, urlstart+"MonthwiseMembersBday.aspx?monthname="+strvalues[2] , Toast.LENGTH_LONG).show();
-			GetBLoMFeeds(urlstart+"junemonth.aspx?monthname="+strvalues[2]);
+			getBirthdayWiseListOfMemberFeeds(urlstart+"junemonth.aspx?monthname="+strvalues[2]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("org"))
 		{
@@ -150,7 +150,7 @@ public class LokSabhaMembers extends Activity {
 		onBackPressed();
 	    return true;
     }
-	public void GetLoMFeeds(String link)
+	public void getListOfMemberFeeds(String link)
 	{
 		GetLoMRSSDataTask task = new GetLoMRSSDataTask();
      	task.execute(link);
@@ -168,7 +168,7 @@ public class LokSabhaMembers extends Activity {
      	task.execute(link);
         Log.d("RssReader", Thread.currentThread().getName());
 	}
-	public void GetBLoMFeeds(String link)
+	public void getBirthdayWiseListOfMemberFeeds(String link)
 	{
 		GetBLoMRSSDataTask task = new GetBLoMRSSDataTask();
      	task.execute(link);
@@ -234,9 +234,6 @@ public class LokSabhaMembers extends Activity {
 	        // Set list view item click listener
 	        lv.setOnItemClickListener(new LoMListListener(result, local));
 	        
-	        //HideMenu();
-	    	//Home hm = new Home();
-	    	//hm.SetItems(result);
 	    }
 	}
 	

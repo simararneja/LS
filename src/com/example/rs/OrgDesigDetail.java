@@ -51,13 +51,13 @@ public class OrgDesigDetail extends Activity {
 		tr.setBackgroundColor(Color.rgb(190, 14, 14));
 		LoadItems li = new LoadItems();
 		imageView = (ImageView)findViewById(R.id.imgOrgImage);
-		if(value[1].equals("c"))
+		if(value[1].equals("s"))
 		{
-			GetOrgFeeds(li.GetChairmanURL());
+			GetOrgFeeds(li.getSpeakerUrl());
 		}
 		else if(value[1].equals("d"))
 		{
-			GetOrgFeeds(li.GetDyChairmanURL());
+			GetOrgFeeds(li.getDeputySpeakerURL());
 		}
 		else if(value[1].equals("s"))
 		{

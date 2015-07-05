@@ -40,13 +40,7 @@ public class customlistadpater_feeds extends ArrayAdapter {
 
 			text.setTextColor(Color.rgb(54, 163, 54));
 			text.setBackgroundColor(Color.TRANSPARENT);
-			/*
-			 * if(text.equals("")){ text.setText("Lok sabha not in session"+
-			 * "");
-			 * 
-			 * text.setTextColor(Color.rgb(54, 163, 54));
-			 * text.setBackgroundColor(Color.TRANSPARENT); }
-			 */
+			
 
 		}
 		

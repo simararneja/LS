@@ -11,7 +11,7 @@ import javax.xml.parsers.SAXParserFactory;
  * @author ITCuties
  *
  */
-public class MBRssReader {
+public class MemberBioDataRssReader {
 	
 	private String rssUrl;
 
@@ -20,7 +20,7 @@ public class MBRssReader {
 	 * 
 	 * @param rssUrl
 	 */
-	public MBRssReader(String rssUrl) {
+	public MemberBioDataRssReader(String rssUrl) {
 		this.rssUrl = rssUrl;
 	}
 
@@ -34,7 +34,7 @@ public class MBRssReader {
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser saxParser = factory.newSAXParser();
 
-		MBRssParseHandler handler = new MBRssParseHandler();
+		MemberBioDataRssParseHandler handler = new MemberBioDataRssParseHandler();
 		
 		saxParser.parse(rssUrl, handler);
 

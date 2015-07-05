@@ -9,7 +9,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 
 
-public class MBRssParseHandler extends DefaultHandler {
+public class MemberBioDataRssParseHandler extends DefaultHandler {
 
 	private List<MBRssItem> rssItems;
 	
@@ -47,7 +47,7 @@ public class MBRssParseHandler extends DefaultHandler {
 	
 	
 	
-	public MBRssParseHandler() {
+	public MemberBioDataRssParseHandler() {
 		rssItems = new ArrayList<MBRssItem>();
 	}
 	
@@ -59,15 +59,15 @@ public class MBRssParseHandler extends DefaultHandler {
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if ("Member".equalsIgnoreCase(qName)) {
 			currentItem = new MBRssItem();
-		} else if ("MemberName".equalsIgnoreCase(qName)) {
+		} else if ("Name".equalsIgnoreCase(qName)) {
 			parsingName = true;
-		}else if ("PartyName".equalsIgnoreCase(qName)) {
+		}else if ("Party".equalsIgnoreCase(qName)) {
 			parsingPartyName = true;
 		}else if ("FatherName".equalsIgnoreCase(qName)) {
 			parsingFatherName = true;
 		}else if ("MotherName".equalsIgnoreCase(qName)) {
 			parsingMotherName = true;
-		}else if ("DOB".equalsIgnoreCase(qName)) {
+		}else if ("DateOfBirth".equalsIgnoreCase(qName)) {
 			parsingDOB = true;
 		}else if ("PlaceOfBirth".equalsIgnoreCase(qName)) {
 			parsingPlaceOfBirth = true;
@@ -77,11 +77,11 @@ public class MBRssParseHandler extends DefaultHandler {
 			parsingSpouseName= true;
 		}else if ("EducatQualification".equalsIgnoreCase(qName)) {
 			parsingEducatQualification = true;
-		}else if ("PermanentAddress".equalsIgnoreCase(qName)) {
+		}else if ("Paddress".equalsIgnoreCase(qName)) {
 			parsingPermanentAddress = true;
 		}else if ("Permanentphone".equalsIgnoreCase(qName)) {
 			parsingPermanentphone = true;
-		}else if ("LocalAddress".equalsIgnoreCase(qName)) {
+		}else if ("Localaddress".equalsIgnoreCase(qName)) {
 			parsingLocalAddress = true;
 		}else if ("Localphone".equalsIgnoreCase(qName)) {
 			parsingLocalphone = true;
@@ -107,7 +107,7 @@ public class MBRssParseHandler extends DefaultHandler {
 			parsingOtherInfo= true;
 		} else if ("PictureUrl".equalsIgnoreCase(qName)) {
 			parsingPictureUrl = true;
-		}else if ("StateName".equalsIgnoreCase(qName)) {
+		}else if ("State".equalsIgnoreCase(qName)) {
 			parsingStateName = true;
 		} 
 	}
@@ -117,15 +117,15 @@ public class MBRssParseHandler extends DefaultHandler {
 		if ("Member".equalsIgnoreCase(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
-		} else if ("MemberName".equalsIgnoreCase(qName)) {
+		} else if ("Name".equalsIgnoreCase(qName)) {
 			parsingName = false;
-		}else if ("PartyName".equalsIgnoreCase(qName)) {
+		}else if ("Party".equalsIgnoreCase(qName)) {
 			parsingPartyName = false;
 		}else if ("FatherName".equalsIgnoreCase(qName)) {
 			parsingFatherName = false;
 		}else if ("MotherName".equalsIgnoreCase(qName)) {
 			parsingMotherName = false;
-		}else if ("DOB".equalsIgnoreCase(qName)) {
+		}else if ("DateOfBirth".equalsIgnoreCase(qName)) {
 			parsingDOB = false;
 		}else if ("PlaceOfBirth".equalsIgnoreCase(qName)) {
 			parsingPlaceOfBirth = false;
@@ -135,11 +135,11 @@ public class MBRssParseHandler extends DefaultHandler {
 			parsingSpouseName= false;
 		}else if ("EducatQualification".equalsIgnoreCase(qName)) {
 			parsingEducatQualification = false;
-		}else if ("PermanentAddress".equalsIgnoreCase(qName)) {
+		}else if ("Paddress".equalsIgnoreCase(qName)) {
 			parsingPermanentAddress = false;
 		}else if ("Permanentphone".equalsIgnoreCase(qName)) {
 			parsingPermanentphone = false;
-		}else if ("LocalAddress".equalsIgnoreCase(qName)) {
+		}else if ("Localaddress".equalsIgnoreCase(qName)) {
 			parsingLocalAddress = false;
 		}else if ("Localphone".equalsIgnoreCase(qName)) {
 			parsingLocalphone = false;
@@ -165,7 +165,7 @@ public class MBRssParseHandler extends DefaultHandler {
 			parsingOtherInfo= false;
 		} else if ("PictureUrl".equalsIgnoreCase(qName)) {
 			parsingPictureUrl = false;
-		}else if ("stateName".equalsIgnoreCase(qName)) {
+		}else if ("State".equalsIgnoreCase(qName)) {
 			parsingStateName = false;
 		}
 	}

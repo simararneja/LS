@@ -4,6 +4,6 @@
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
     <dimen name="heading_font">20dip</dimen>
-    <dimen name="mem_name_font">18dp</dimen>
+    <dimen name="mem_name_font">24dp</dimen>
 
 </resources>

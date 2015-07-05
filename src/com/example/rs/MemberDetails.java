@@ -31,21 +31,12 @@ public class MemberDetails extends Activity {
 		LoadItems li = new LoadItems();
 		String url = li.GetMemBerDetailURL(MP_Code);
 		GetFeeds(url);
-		String pictureurl = "http://164.100.47.5/newmembers/photos/P"+MP_Code+".jpg";
+		String pictureurl = "http://164.100.47.132/mpimage/photo/"+MP_Code+".jpg";
 		ImageView iv = (ImageView)findViewById(R.id.imgMemImage);
 		imageView = iv;
 		GetXMLTask task = new GetXMLTask();
         // Execute the task
         task.execute(new String[] { pictureurl });
-		//Bitmap bitmap = DownloadImage(pictureurl);
-        //iv.setImageBitmap(bitmap);
-		//Drawable drawable = LoadImageFromWebOperations(pictureurl);
-	    //iv.setImageDrawable(drawable);
-		//Bitmap bimage=  GetImage(pictureurl);
-		//iv.setImageBitmap(bimage);
-
-		//iv.setImageDrawable(drawable);
-		//iv.setImageURI(uri)
 	}
 
 	@Override
@@ -59,9 +50,6 @@ public class MemberDetails extends Activity {
 	{
 		GetMDRSSDataTask task = new GetMDRSSDataTask();
         
-        // Start download RSS task
-        //task.execute( "http://164.100.47.5/IPADFeeds/Bulletin1.aspx");
-		//task.execute( "http://164.100.47.5/AndroidFeeds/BusinessFeeds.aspx");
 		task.execute(link);
          
         // Debug the thread name
@@ -98,17 +86,6 @@ public class MemberDetails extends Activity {
 	    	tv.setText(result[0]);
 	    	tv = (TextView)findViewById(R.id.txtState);
 	    	tv.setText(result[1]);
-	    	//iv.setImageURI(result[2]);
-	        // Create a list adapter
-	        //ArrayAdapter<MDRssItem> adapter = new ArrayAdapter<MDRssItem>(local,android.R.layout.simple_list_item_1, result);
-	        // Set list adapter for the ListView
-	        //lv.setAdapter(adapter);
-	                     
-	        // Set list view item click listener
-	        //lv.setOnItemClickListener(new ListListener(result, local));
-	        
-	    	//Home hm = new Home();
-	    	//hm.SetItems(result);
 	    }
 	}
 	

@@ -51,12 +51,16 @@ public class TabMemberDetails extends Activity {
 		spec1.setContent(R.id.tab1);
 		spec1.setIndicator("Bio Data");
 		TabSpec spec2=tabHost.newTabSpec("Tab 2");
-		spec2.setIndicator("Assurances");
+		spec2.setIndicator("Debates");   //special menions, supplimentary questions, govt bills, pvt members bills, pvt members resolution , commitee membership
 		spec2.setContent(R.id.tab2);
 
 		TabSpec spec3=tabHost.newTabSpec("Tab 3");
 		spec3.setIndicator("Questions");
 		spec3.setContent(R.id.tab3);
+		
+		
+		
+		
 		tabHost.addTab(spec1);
 		tabHost.addTab(spec2);
 		tabHost.addTab(spec3);
@@ -72,7 +76,7 @@ public class TabMemberDetails extends Activity {
 		Typeface typeFace=Typeface.createFromAsset(getAssets(),"fonts/MTCORSVA.TTF");
 		textname.setTypeface(typeFace);
 		/**/
-		String pictureurl = "http://164.100.47.5/newmembers/photos/P"+mp_code+".jpg";
+		String pictureurl = li.getMemberPictureURL()+mp_code+".jpg";
 		ImageView iv = (ImageView)findViewById(R.id.imgMemImage);
 		imageView = iv;
 		GetXMLTask task = new GetXMLTask();
@@ -81,10 +85,10 @@ public class TabMemberDetails extends Activity {
 		String BioDataURL =  li.GetMemBioDataURL(mp_code);
 		GetBioDataFeeds(BioDataURL);
 		String QuestionURL = li.GetMemQuestionsURL(mp_code);
-		GetQuestionFeeds(QuestionURL);
+		//GetQuestionFeeds(QuestionURL);
 		
 		String AssurancesURL = li.GetMemAssurancesURL(mp_code);
-		GetAssurancesFeeds(AssurancesURL);
+		//GetAssurancesFeeds(AssurancesURL);
 		//Toast.makeText(this, QuestionURL, Toast.LENGTH_SHORT).show();
 	}
 
@@ -115,9 +119,6 @@ public class TabMemberDetails extends Activity {
 		//Toast.makeText(local, "Please Wait..Questions are Loading",  Toast.LENGTH_LONG).show();
 		GetMQLRSSDataTask task = new GetMQLRSSDataTask();
         
-        // Start download RSS task
-        //task.execute( "http://164.100.47.5/IPADFeeds/Bulletin1.aspx");
-		//task.execute( "http://164.100.47.5/AndroidFeeds/BusinessFeeds.aspx");
 		task.execute(link);
          
         // Debug the thread name
@@ -132,26 +133,26 @@ public class TabMemberDetails extends Activity {
 	}
 	public void GetBioDataFeeds(String link)
 	{
-		GetMBRSSDataTask task = new GetMBRSSDataTask();
+		GetMemberBioDataRSSDataTask task = new GetMemberBioDataRSSDataTask();
 		task.execute(link);
-        Log.d("RssReader", Thread.currentThread().getName());
+        Log.d("MemberBioDataFeeds", Thread.currentThread().getName());
 	}
-	private class GetMBRSSDataTask extends AsyncTask<String, Void, List<MBRssItem> > {
+	private class GetMemberBioDataRSSDataTask extends AsyncTask<String, Void, List<MBRssItem> > {
 	    @Override
 	    protected List<MBRssItem> doInBackground(String... urls) {
 	         
 	        // Debug the task thread name
-	        Log.d("LoMRssReader", Thread.currentThread().getName());
+	        Log.d("MemberBioDataRssReader", Thread.currentThread().getName());
 	         
 	        try {
 	            // Create RSS reader
-	        	MBRssReader rssReader = new MBRssReader(urls[0]);
+	        	MemberBioDataRssReader rssReader = new MemberBioDataRssReader(urls[0]);
 	         
 	            // Parse RSS, get items
 	            return rssReader.getItems();
 	         
 	        } catch (Exception e) {
-	            Log.e("RssReader", e.getMessage());
+	            Log.e("MemberBioDataRssReaderError", e.getMessage());
 	        }
 	         
 	        return null;
@@ -242,8 +243,7 @@ public class TabMemberDetails extends Activity {
 	        // Create a list adapter
 	        final ArrayAdapter<MQLRssItem> adapter = new ArrayAdapter<MQLRssItem>(local,android.R.layout.simple_list_item_1, result);
 	        // Set list adapter for the ListView
-	        if(adapter.getItem(0).getqid() != null)
-	        {
+	        if(adapter.getItem(0).getqid() != null){
 	        lv.setAdapter(adapter);
 	                     
 	        // Set list view item click listener

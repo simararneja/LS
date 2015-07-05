@@ -15,7 +15,7 @@ public class StatesRssParseHandler extends DefaultHandler {
 	private StatesRssItem currentItem;
 	
 
-	private boolean parsingnoofmembers;
+	private boolean parsingMemberCount;
 	private boolean parsingstates;
 	private boolean parsingstatename;
 	
@@ -32,7 +32,7 @@ public class StatesRssParseHandler extends DefaultHandler {
 		if ("Member".equalsIgnoreCase(qName)) {
 			currentItem = new StatesRssItem();
 		}else if ("MemberCount".equalsIgnoreCase(qName)) {
-			parsingnoofmembers = true;
+			parsingMemberCount = true;
 		}
 		else if ("StateID".equalsIgnoreCase(qName)) {
 			parsingstates = true;
@@ -48,7 +48,7 @@ public class StatesRssParseHandler extends DefaultHandler {
 			rssItems.add(currentItem);
 			currentItem = null;
 		}else if ("MemberCount".equalsIgnoreCase(qName)) {
-			parsingnoofmembers = false;
+			parsingMemberCount = false;
 		}
 		else if ("StateID".equalsIgnoreCase(qName)) {
 			parsingstates = false;
@@ -60,10 +60,10 @@ public class StatesRssParseHandler extends DefaultHandler {
 	
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
-		 if (parsingnoofmembers) {
+		 if (parsingMemberCount) {
 			if (currentItem != null) 
 			{currentItem.setnoofmembers(new String(ch, start, length));
-			parsingnoofmembers = false;
+			parsingMemberCount = false;
 			}
 		} else if (parsingstates) {
 			if (currentItem != null) 
