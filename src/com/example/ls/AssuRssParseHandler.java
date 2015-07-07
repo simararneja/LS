@@ -1,0 +1,106 @@
+package com.example.ls;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+
+public class AssuRssParseHandler extends DefaultHandler {
+
+	private List<AssuRssItem> rssItems;
+	
+	private AssuRssItem currentItem;
+	
+
+	private boolean parsingDslot;
+	private boolean parsingMonthsName;
+	private boolean parsinglink;
+	private boolean parsingqid;
+	private boolean parsingministryName;
+	private boolean parsingsubject;
+	private boolean parsingqtype;
+	private boolean parsingqses_no;
+	
+	public AssuRssParseHandler() {
+		rssItems = new ArrayList<AssuRssItem>();
+	}
+	
+	public List<AssuRssItem> getItems() {
+		return rssItems;
+	}
+	
+	@Override
+	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+		if ("Member".equalsIgnoreCase(qName)) {
+			currentItem = new AssuRssItem();
+		}else if ("qid".equalsIgnoreCase(qName)) {
+			parsingqid = true;
+		}else if ("link".equalsIgnoreCase(qName)) {
+			parsinglink = true;
+		}
+		else if ("subject".equalsIgnoreCase(qName)) {
+			parsingsubject = true;
+		}
+		else if ("ministryname".equalsIgnoreCase(qName)) {
+			parsingministryName = true;
+		}
+		else if ("qtype".equalsIgnoreCase(qName)) {
+			parsingqtype = true;
+		}
+	}
+	
+	@Override
+	public void endElement(String uri, String localName, String qName) throws SAXException {
+		if ("Member".equalsIgnoreCase(qName)) {
+			rssItems.add(currentItem);
+			currentItem = null;
+		}else if ("qid".equalsIgnoreCase(qName)) {
+			parsingqid = false;
+		}else if ("link".equalsIgnoreCase(qName)) {
+			parsinglink = false;
+		}
+		else if ("subject".equalsIgnoreCase(qName)) {
+			parsingsubject = false;
+		}
+		else if ("ministryname".equalsIgnoreCase(qName)) {
+			parsingministryName = false;
+		}
+		else if ("qtype".equalsIgnoreCase(qName)) {
+			parsingqtype = false;
+		}
+	}
+	
+	@Override
+	public void characters(char[] ch, int start, int length) throws SAXException {
+		 if (parsingqid) {
+			if (currentItem != null) 
+			currentItem.setqid(new String(ch, start, length));
+		}else if (parsinglink) {
+		if (currentItem != null) {
+			currentItem.setlink(new String(ch, start, length));
+			parsinglink = false;
+		}
+	}
+		else if (parsingministryName) {
+			if (currentItem != null) {
+				currentItem.setministryName(new String(ch, start, length));
+				parsingministryName = false;
+			}
+		}
+		else if (parsingsubject) {
+			if (currentItem != null) {
+				currentItem.setsubject(new String(ch, start, length));
+				parsingsubject = false;
+			}
+		}
+		else if (parsingqtype) {
+			if (currentItem != null) {
+				currentItem.setqtype(new String(ch, start, length));
+				parsingqtype = false;
+			}
+		}
+	}
+}

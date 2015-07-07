@@ -17,7 +17,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.rs.Home"
+            android:name="com.example.ls.Home"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,47 +26,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.rs.MemberDetails"
+            android:name="com.example.ls.MemberDetails"
             android:label="@string/title_activity_member_details" >
         </activity>
         <activity
-            android:name="com.example.rs.MemDetailsScroll"
+            android:name="com.example.ls.MemDetailsScroll"
             android:label="@string/title_activity_mem_details_scroll" >
         </activity>
         <activity
-            android:name="com.example.rs.TabMemberDetails"
+            android:name="com.example.ls.TabMemberDetails"
             android:label="@string/title_activity_tab_member_details" >
         </activity>
         <activity
-            android:name="com.example.rs.WebView"
+            android:name="com.example.ls.WebView"
             android:label="@string/title_activity_web_view" >
         </activity>
         <activity
-            android:name="com.example.rs.WebSite"
+            android:name="com.example.ls.WebSite"
             android:label="@string/title_activity_web_site" >
         </activity>
         <activity
-            android:name="com.example.rs.LokSabhaMembers"
+            android:name="com.example.ls.LokSabhaMembers"
             android:label="@string/title_activity_rsmembers" >
         </activity>
         <activity
-            android:name="com.example.rs.QuestionList"
+            android:name="com.example.ls.QuestionList"
             android:label="@string/title_activity_question_list" >
         </activity>
         <activity
-            android:name="com.example.rs.OrgDesigDetail"
+            android:name="com.example.ls.OrgDesigDetail"
             android:label="@string/title_activity_org_desig_detail" >
         </activity>
         <activity
-            android:name="com.example.rs.OrgASJSDirector"
+            android:name="com.example.ls.OrganisationASJSDirector"
             android:label="@string/title_activity_org_asjsdirector" >
         </activity>
         <activity
-            android:name="com.example.rs.TodaysBirthday"
+            android:name="com.example.ls.TodaysBirthday"
             android:label="@string/title_activity_todays_birthday" >
         </activity>
         <activity
-            android:name="com.example.rs.WebviewActivity"
+            android:name="com.example.ls.WebviewActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_webview"
             android:theme="@style/FullscreenTheme" >
