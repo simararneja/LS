@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/business"
+            android:background="@drawable/businessnew"
             android:contentDescription="Business" >
         </ImageView>
 
@@ -51,23 +51,24 @@
             <ImageButton
                 android:id="@+id/menu_button"
                 android:layout_width="48dp"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="false"
-                android:background="#000000"
-                android:contentDescription="@string/app_menu"
-                android:cropToPadding="true"
-                android:scaleType="fitStart"
-                android:src="@drawable/ic_list_white_48dp" />
+                android:layout_height="58dp"
+                android:background="@drawable/button1955png"
+                android:shadowColor="#A8A8A8"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="5"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp" />
 
             <ImageView
                 android:layout_width="50dip"
-                android:layout_height="50dip"
+                android:layout_height="55dip"
                 android:layout_weight="1"
                 android:src="@drawable/headermargin" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="52dp"
                 android:layout_gravity="center"
                 android:background="@drawable/headernew" />
 
@@ -99,7 +100,7 @@
                 android:layout_height="1dp"
                 android:background="@drawable/g2"
                 android:textColor="#ffffff"
-                android:textSize="25dp"
+                android:textSize="25sp"
                 android:textStyle="bold" />
 
             <ListView

@@ -44,6 +44,7 @@ public class Home extends Activity implements OnClickListener,
 	public static final int MENU_ITEM_2 = 2;
 	public static final int MENU_ITEM_3 = 3;
 	public static final int MENU_ITEM_4 = 4;
+	private int count =1;
 	private SimpleGestureFilter detector;
 	public Home local;
 	public String Pagelabel;
@@ -103,8 +104,8 @@ public class Home extends Activity implements OnClickListener,
 		lv.setAdapter(aa);
 		lv.setClickable(true);
 		Toast.makeText(this,
-				"Welcome to the Lok Sabha Business Application for Android",
-				Toast.LENGTH_LONG).show();
+				"Welcome to the Lok Sabha Business App",
+				Toast.LENGTH_SHORT).show();
 
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -207,12 +208,19 @@ public class Home extends Activity implements OnClickListener,
 					GetFeeds(url);
 
 				}
-				// SetItems(rfeeds);
-				// ArrayAdapter<RssItem> feeds = new
-				// ArrayAdapter<RssItem>(this,android.R.layout.simple_list_item_1,rfeeds);
 			}
 		});
+		/*if(count==1){
+			
+			HideMenu();
+			Intent todayBirthday = new Intent(local,
+					TodaysBirthday.class);
+			local.startActivity(todayBirthday);
+			count++;
+		}
 		ShowMenu();
+	}*/
+	ShowMenu();
 	}
 
 	@Override
@@ -229,11 +237,6 @@ public class Home extends Activity implements OnClickListener,
 
 		// Setting Dialog Message
 		alertDialog.setMessage(message);
-
-		// Setting alert dialog icon
-		// alertDialog.setIcon((status) ? R.drawable.success : R.drawable.fail);
-		// Setting OK Button
-		// Showing Alert Message
 		alertDialog.show();
 	}
 
