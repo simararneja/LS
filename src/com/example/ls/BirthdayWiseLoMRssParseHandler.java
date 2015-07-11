@@ -39,13 +39,13 @@ public class BirthdayWiseLoMRssParseHandler extends DefaultHandler {
 	
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-		if ("Members".equals(qName)) {
+		if ("Member".equals(qName)) {
 			currentItem = new BirthdayWiseLoMRssItem();
 		} else if ("Sno".equals(qName)) {
 			parsingSno = true;
 		} else if ("Gender".equals(qName)) {
 			parsingGender = true;
-		}else if ("MPCode".equals(qName)) {
+		}else if ("memberId".equals(qName)) {
 			parsingMPCode = true;
 		}else if ("MemberName".equals(qName)) {
 			parsingMemberName = true;
@@ -72,14 +72,14 @@ public class BirthdayWiseLoMRssParseHandler extends DefaultHandler {
 	
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if ("Members".equals(qName)) {
+		if ("Member".equals(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
 		} else if ("Sno".equals(qName)) {
 			parsingSno = false;
 		} else if ("Gender".equals(qName)) {
 			parsingGender = false;
-		}else if ("MPCode".equals(qName)) {
+		}else if ("memberId".equals(qName)) {
 			parsingMPCode = false;
 		}else if ("MemberName".equals(qName)) {
 			parsingMemberName = false;
@@ -126,7 +126,7 @@ public class BirthdayWiseLoMRssParseHandler extends DefaultHandler {
 			currentItem.setPartyname(new String(ch, start, length));
 	}else if (parsingState) {
 		if (currentItem != null) 
-			currentItem.setState(new String(ch, start, length));
+			currentItem.setStateName(new String(ch, start, length));
 	}else if (parsingstateName) {
 		if (currentItem != null) 
 			currentItem.setStateName(new String(ch, start, length));

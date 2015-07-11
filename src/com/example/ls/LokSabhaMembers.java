@@ -105,7 +105,7 @@ public class LokSabhaMembers extends Activity {
 		else if(strvalues[0].equalsIgnoreCase("membday"))
 		{
 			//Toast.makeText(this, urlstart+"MonthwiseMembersBday.aspx?monthname="+strvalues[2] , Toast.LENGTH_LONG).show();
-			getBirthdayWiseListOfMemberFeeds(urlstart+"junemonth.aspx?monthname="+strvalues[2]);
+			getBirthdayWiseListOfMemberFeeds(urlstart+li.postMonthLink[Integer.parseInt(strvalues[2])]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("org"))
 		{
@@ -114,14 +114,14 @@ public class LokSabhaMembers extends Activity {
 		}
 		else if(strvalues[0].equalsIgnoreCase("comMain"))
 		{
-			tv.setText("Committees");
+			//tv.setText("Committees");
 			ArrayAdapter<String> aa = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,li.comtypes);
 			lv.setAdapter(aa);
 			lv.setOnItemClickListener(new ComMainListListener(local));
 		}
 		else if(strvalues[0].equalsIgnoreCase("comDet"))
 		{
-			tv.setText(li.comtypes[Integer.parseInt(strvalues[1])]);
+			//tv.setText(li.comtypes[Integer.parseInt(strvalues[1])]);
 			GetCommMem(li.urlStart + "CommitteeMembershipall.aspx?comm="+strvalues[2]);
 		}
 		else if(strvalues[0].equalsIgnoreCase("comName"))

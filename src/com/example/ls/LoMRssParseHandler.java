@@ -20,7 +20,7 @@ public class LoMRssParseHandler extends DefaultHandler {
 	//private boolean parsingGender;
 	private boolean parsingMemberName;
 	private boolean parsingParty;
-	//private boolean parsingPartyname;
+	private boolean parsingPartyname;
 	private boolean parsingState;
 	//private boolean parsingstateName;
 	private boolean parsingPermanentAddress;
@@ -49,6 +49,7 @@ public class LoMRssParseHandler extends DefaultHandler {
 			parsingMemberName = true;
 		}else if ("Party".equals(qName)) {
 			parsingParty = true;
+			parsingPartyname= true;
 		}else if ("State".equals(qName)) {
 			parsingState = true;
 		}else if ("Paddress".equals(qName)) {
@@ -77,6 +78,7 @@ public class LoMRssParseHandler extends DefaultHandler {
 			parsingMemberName = false;
 		}else if ("Party".equals(qName)) {
 			parsingParty = false;
+			parsingPartyname= false;;
 		}else if ("State".equals(qName)) {
 			parsingState = false;
 		}else if ("Paddress".equals(qName)) {
@@ -106,9 +108,10 @@ public class LoMRssParseHandler extends DefaultHandler {
 	}else if (parsingParty) {
 		if (currentItem != null) 
 			currentItem.setParty(new String(ch, start, length));
+		currentItem.setPartyname(new String(ch, start, length));
 	}else if (parsingState) {
 		if (currentItem != null) 
-			currentItem.setState(new String(ch, start, length));
+			currentItem.setStateName(new String(ch, start, length));
 	}else if (parsingPermanentAddress) {
 		if (currentItem != null) 
 			currentItem.setPermanentAddress(new String(ch, start, length));

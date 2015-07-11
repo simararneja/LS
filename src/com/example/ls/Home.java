@@ -191,7 +191,7 @@ public class Home extends Activity implements OnClickListener,
 
 								i.putExtra("values", values);
 								local.startActivity(i);
-							} else {
+							} else if(memTypeVal == "g") {
 								String[] values = null;
 								Intent intent = new Intent(v.getContext(),
 										SecretaryGeneralDetail.class);
@@ -397,6 +397,7 @@ public class Home extends Activity implements OnClickListener,
 						values = new String[] { "states", memTypeVal };
 					else if (memTypeVal.equalsIgnoreCase("b"))
 						values = new String[] { "bday", memTypeVal };
+					
 					else
 						values = new String[] { "members", memTypeVal };
 					i.putExtra("values", values);

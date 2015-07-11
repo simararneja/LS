@@ -35,7 +35,7 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
-		if ("LokSabha".equalsIgnoreCase(qName)) {
+		if ("LokSabha".equals(qName)) {
 			currentItem = new SecretaryGeneralRssItem();
 		} else if ("Name".equals(qName)) {
 			parsingName = true;
@@ -43,22 +43,22 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 			parsingEducationQual = true;
 		} else if ("PermanentAddress".equals(qName)) {
 			parsingPermanentAddress = true;
-		} else if ("Permanentphone".equalsIgnoreCase(qName)) {
+		} else if ("Permanentphone".equals(qName)) {
 			parsingPermanentphone = true;
-		} else if ("OfficeAddress1".equalsIgnoreCase(qName)) {
+		} else if ("OfficeAddress1".equals(qName)) {
 			parsingOfficeAddress1 = true;
-		} else if ("Oficephone1".equalsIgnoreCase(qName)) {
+		} else if ("Oficephone1".equals(qName)) {
 			parsingOfficephone1 = true;
-		} else if ("OfficeAddress2".equalsIgnoreCase(qName)) {
+		} else if ("OfficeAddress2".equals(qName)) {
 			parsingOfficeAddress2 = true;
-		} else if ("Oficephone2".equalsIgnoreCase(qName)) {
+		} else if ("Oficephone2".equals(qName)) {
 			parsingOfficephone2 = true;
-		} else if ("EmailID".equalsIgnoreCase(qName)) {
+		} else if ("EmailID".equals(qName)) {
 			parsingEmailID = true;
-		} else if ("PictureUrl".equalsIgnoreCase(qName)) {
+		} else if ("PictureUrl".equals(qName)) {
 			parsingPictureUrl = true;
 		}
-		else if ("BiodataUrl".equalsIgnoreCase(qName)) {
+		else if ("BiodataUrl".equals(qName)) {
 			parsingBiodataUrl = true;
 		}
 	}
@@ -66,7 +66,7 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		if ("LokSabha".equalsIgnoreCase(qName)) {
+		if ("LokSabha".equals(qName)) {
 			rssItems.add(currentItem);
 			currentItem = null;
 		} else if ("Name".equals(qName)) {
@@ -75,22 +75,22 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 			parsingEducationQual = false;
 		} else if ("PermanentAddress".equals(qName)) {
 			parsingPermanentAddress = false;
-		} else if ("Permanentphone".equalsIgnoreCase(qName)) {
+		} else if ("Permanentphone".equals(qName)) {
 			parsingPermanentphone = false;
-		} else if ("OfficeAddress1".equalsIgnoreCase(qName)) {
+		} else if ("OfficeAddress1".equals(qName)) {
 			parsingOfficeAddress1 = false;
-		} else if ("Oficephone1".equalsIgnoreCase(qName)) {
+		} else if ("Oficephone1".equals(qName)) {
 			parsingOfficephone1 = false;
-		} else if ("OfficeAddress2".equalsIgnoreCase(qName)) {
+		} else if ("OfficeAddress2".equals(qName)) {
 			parsingOfficeAddress2 = false;
-		} else if ("Oficephone2".equalsIgnoreCase(qName)) {
+		} else if ("Oficephone2".equals(qName)) {
 			parsingOfficephone2 = false;
-		} else if ("EmailID".equalsIgnoreCase(qName)) {
+		} else if ("EmailID".equals(qName)) {
 			parsingEmailID = false;
-		} else if ("PictureUrl".equalsIgnoreCase(qName)) {
+		} else if ("PictureUrl".equals(qName)) {
 			parsingPictureUrl = false;
 		}
-		else if ("BiodataUrl".equalsIgnoreCase(qName)) {
+		else if ("BiodataUrl".equals(qName)) {
 			parsingBiodataUrl = false;
 		}
 	}

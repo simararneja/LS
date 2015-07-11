@@ -10,20 +10,11 @@ public class OrgDesigRssReader {
 	
 	private String rssUrl;
 
-	/**
-	 * Constructor
-	 * 
-	 * @param rssUrl
-	 */
+	
 	public OrgDesigRssReader(String rssUrl) {
 		this.rssUrl = rssUrl;
 	}
 
-	/**
-	 * Get RSS items.
-	 * 
-	 * @return
-	 */
 	public List<OrgDesigRssItem> getItems() throws Exception {
 		// SAX parse RSS data
 		SAXParserFactory factory = SAXParserFactory.newInstance();

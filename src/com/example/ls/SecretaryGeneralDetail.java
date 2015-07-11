@@ -26,6 +26,7 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SecretaryGeneralDetail extends Activity{
 	public ImageView imageView;
@@ -57,8 +58,10 @@ public class SecretaryGeneralDetail extends Activity{
 		
 		LoadItems li = new LoadItems();
 		imageView = (ImageView)findViewById(R.id.imgOrgImageSG);
-		
+		if(value[1].equals("g")){
+			
 			getSecretaryGeneralFeeds(li.getSecretaryGeneralURL());
+		}
 		
 	}
 	
@@ -151,6 +154,10 @@ public class SecretaryGeneralDetail extends Activity{
 	        // Execute the task
 	        task.execute(ri.getPictureUrl());
 		}
+			else{
+				Toast.makeText(getBaseContext(), "fee empty",
+						Toast.LENGTH_SHORT).show();
+			}
 
 		}
 		

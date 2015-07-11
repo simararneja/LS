@@ -38,15 +38,15 @@ public class LoadItems extends Activity {
 		websitesbottommenulinks = new String[] {"http://loksabha.nic.in","http://loksabhahindi.nic.in","http://rajyasabha.nic.in","http://rajyasabhahindi.nic.in","http://rsdebate.nic.in"};
 		livebottommenu = new String[]{"Rajya Sabha TV","Lok Sabha TV","Doordarshan"};
 		livebottommenulinks = new String[]{"http://rstv.nic.in","http://loksabhatv.nic.in","http://webcast.gov.in"};
-		membertypes = new String[] {"Alphabetical","State wise","Party wise","B'day wise","Women","Nominated"};
+		membertypes = new String[] {"Alphabetical","State wise","Party wise","Birthday wise","Women Members","Nominated Members"};
 		membertypevalues = new String[] {"a","s","p","b","w","n"};
 		months = new String[]{"January","February","March","April","May","June","July","August","September","October","November","December"};
-		postMonthLink = new String[]{"janmonth.aspx?monthname=january","febmonth.aspx?monthname=february","marmonth.aspx?monthname=march","aprmonth.aspx?monthname=april","maymonth.aspx?monthname=may","junmonth.aspx?monthname=june","julmonth.aspx?monthname=july","augustmonth.aspx?monthname=august","septmonth.aspx?monthname=september" };
+		postMonthLink = new String[]{"janmonth.aspx?monthname=january","febmonth.aspx?monthname=february","marchmonth.aspx?monthname=march","aprilmonth.aspx?monthname=april","maymonth.aspx?monthname=may","junemonth.aspx?monthname=june","julymonth.aspx?monthname=july","augustmonth.aspx?monthname=august","septmonth.aspx?monthname=september","octmonth.aspx?monthname=october","novmonth.aspx?monthname=november","decmonth.aspx?monthname=december" };
 		organisationDesignations = new String[]{"Speaker","Deputy Speaker","Secretary General","Secretariat"};
-		orgDesignationsValue = new String[]{"s","d","sg","o"};
+		orgDesignationsValue = new String[]{"s","d","g","o"};
 		comtypes = new String[]{"Financial Committees", "Standing Committees of Lok Sabha","Department Related Standing Committees (RS)","Department Related Standing Committees (LS)","Joint Committees","Adhoc Committees","Select Committees"};
-		comLinks = new String[] {"CommitteeMembershipall.aspx?comm=RS","CommitteeMembershipall.aspx?comm=DRSCRS","CommitteeMembershipall.aspx?comm=DRSCLS","CommitteeMembershipall.aspx?comm=JC","CommitteeMembershipall.aspx?comm=ADHOC","CommitteeMembershipall.aspx?comm=SELECT"};
-		comShortNames = new String[]{"RS","DRSCRS","DRSCLS","JC","ADHOC","SELECT"};
+		comLinks = new String[] {"CommitteeMembershipall.aspx?comm=RS","CommitteeMembershipall.aspx?comm=DRSCRS","CommitteeMembershipall.aspx?comm=DRSCRS","CommitteeMembershipall.aspx?comm=DRSCLS","CommitteeMembershipall.aspx?comm=JC","CommitteeMembershipall.aspx?comm=ADHOC","CommitteeMembershipall.aspx?comm=ADHOC"};
+		comShortNames = new String[]{"RS","RS","DRSCRS","DRSCLS","JC","ADHOC","SELECT"};
 	
 	}
 	
@@ -64,7 +64,7 @@ public class LoadItems extends Activity {
 	}
 	public String GetMemAssurancesURL(String MP_Code)
 	{
-		return urlStart+"MemberAssurance.aspx?member_id=" + MP_Code;
+		return urlStart+"member_debates.aspx?member_iD=" + MP_Code;
 	}
 	public String GetMemBioDataURL(String MP_Code)
 	{
@@ -88,7 +88,7 @@ public class LoadItems extends Activity {
 	}
 	public String getSecretaryGeneralURL()
 	{
-		return urlStart + "SecretaryGeneral.aspx";
+		return "http://164.100.47.132/ipad_rssfeed/SecretaryGeneral.aspx";
 	}
 	public String getASJSUrl()
 	{

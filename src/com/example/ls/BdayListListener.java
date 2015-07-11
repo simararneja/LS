@@ -24,7 +24,7 @@ public class BdayListListener implements OnItemClickListener {
         Intent i = new Intent(view.getContext(),LokSabhaMembers.class);
         // We have to set data for our new Intent
         LoadItems li = new LoadItems();
-        String[] values = new String[]{"membday","b",li.months[pos]};
+        String[] values = new String[]{"membday","b",pos+""};
         i.putExtra("values", values);
         // And start activity with our Intent
         activity.startActivity(i);
