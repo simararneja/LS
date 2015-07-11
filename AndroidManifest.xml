@@ -75,6 +75,10 @@
             android:label="@string/title_activity_webview"
             android:theme="@style/FullscreenTheme" >
         </activity>
+        <activity
+            android:name="com.example.ls.SecretaryGeneralDetail"
+            android:label="@string/title_activity_secretary_general" >
+        </activity>
     </application>
 
 </manifest>

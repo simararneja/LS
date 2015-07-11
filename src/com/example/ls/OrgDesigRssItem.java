@@ -1,12 +1,6 @@
 package com.example.ls;
 
-/**
- * This code encapsulates RSS item data.
- * Our application needs title and link data.
- * 
- * @author ITCuties
- *
- */
+
 public class OrgDesigRssItem {
 	
 	private String Name;

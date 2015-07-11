@@ -56,15 +56,11 @@ public class OrgDesigDetail extends Activity {
 		imageView = (ImageView)findViewById(R.id.imgOrgImage);
 		if(value[1].equals("s"))
 		{
-			GetOrgFeeds(li.getSpeakerUrl());
+			getOrgFeeds(li.getSpeakerUrl());
 		}
 		else if(value[1].equals("d"))
 		{
-			GetOrgFeeds(li.getDeputySpeakerURL());
-		}
-		else if(value[1].equals("sg"))
-		{
-			GetOrgFeeds(li.getSecretaryGeneralURL());
+			getOrgFeeds(li.getDeputySpeakerURL());
 		}
 	}
 
@@ -87,8 +83,9 @@ public class OrgDesigDetail extends Activity {
 		getMenuInflater().inflate(R.menu.org_desig_detail, menu);
 		return true;
 	}
-
-	public void GetOrgFeeds(String link)
+	
+	
+	public void getOrgFeeds(String link)
 	{
 		GetOrgDesigRSSDataTask task = new GetOrgDesigRSSDataTask();
 		task.execute(link);
@@ -117,8 +114,7 @@ public class OrgDesigDetail extends Activity {
 	     
 	    @Override
 	    protected void onPostExecute(List<OrgDesigRssItem> result) {
-	    	// Get a ListView from main view
-	        //ListView lv = (ListView)findViewById(R.id.lstQuestions);
+
 	        OrgDesigRssItem ri = result.get(0);
 	        String variable;
 	        TextView tv = (TextView)findViewById(R.id.txtOrgDOB);

@@ -44,7 +44,7 @@ public class Home extends Activity implements OnClickListener,
 	public static final int MENU_ITEM_2 = 2;
 	public static final int MENU_ITEM_3 = 3;
 	public static final int MENU_ITEM_4 = 4;
-	private int count =1;
+	private int count = 1;
 	private SimpleGestureFilter detector;
 	public Home local;
 	public String Pagelabel;
@@ -103,8 +103,7 @@ public class Home extends Activity implements OnClickListener,
 				android.R.layout.simple_list_item_1, li.GetItemArray());
 		lv.setAdapter(aa);
 		lv.setClickable(true);
-		Toast.makeText(this,
-				"Welcome to the Lok Sabha Business App",
+		Toast.makeText(this, "Welcome to the Lok Sabha Business App",
 				Toast.LENGTH_SHORT).show();
 
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -156,7 +155,9 @@ public class Home extends Activity implements OnClickListener,
 					Intent todayBirthday = new Intent(local,
 							TodaysBirthday.class);
 					local.startActivity(todayBirthday);
-				} else if (url.contains("organisation")) {
+				}
+
+				else if (url.contains("organisation")) {
 					// tv.setText(liitems.items[position]);
 					HideMenu();
 					ListView lv = (ListView) findViewById(R.id.listFeeds);
@@ -170,15 +171,16 @@ public class Home extends Activity implements OnClickListener,
 						public void onItemClick(AdapterView<?> arg0, View v,
 								int position, long arg3) {
 							String memTypeVal = liitems.orgDesignationsValue[position];
+
 							if (memTypeVal == "o") { // "o" for Secretariat
 								Intent i = new Intent(v.getContext(),
 										OrganisationASJSDirector.class);
 								local.startActivity(i);
-							} else {
+							} else if (memTypeVal == "s" || memTypeVal == "d") {
 								Intent i = new Intent(v.getContext(),
 										OrgDesigDetail.class);
-								// We have to set data for our new Intent
-								String[] values;
+								String[] values = null;
+
 								if (memTypeVal == "s")
 									values = new String[] {
 											"Speaker - Lok Sabha", memTypeVal };
@@ -186,18 +188,23 @@ public class Home extends Activity implements OnClickListener,
 									values = new String[] {
 											"Deputy Speaker - Lok Sabha",
 											memTypeVal };
-								else
-									values = new String[] {
-											"Secratary General - Lok Sabha",
-											memTypeVal };
+
 								i.putExtra("values", values);
-								// i.putExtra("type", "members");
-								// i.putExtra("position", position);
-								// And start activity with our Intent
 								local.startActivity(i);
+							} else {
+								String[] values = null;
+								Intent intent = new Intent(v.getContext(),
+										SecretaryGeneralDetail.class);
+								values = new String[] {
+										"Secratary General - Lok Sabha",
+										memTypeVal };
+								intent.putExtra("values", values);
+								local.startActivity(intent);
+
 							}
 						}
 					});
+
 				} else if (url.contains("com")) {
 					Intent i = new Intent(local, LokSabhaMembers.class);
 					String com[] = new String[] { "comMain" };
@@ -210,17 +217,7 @@ public class Home extends Activity implements OnClickListener,
 				}
 			}
 		});
-		/*if(count==1){
-			
-			HideMenu();
-			Intent todayBirthday = new Intent(local,
-					TodaysBirthday.class);
-			local.startActivity(todayBirthday);
-			count++;
-		}
-		ShowMenu();
-	}*/
-	ShowMenu();
+
 	}
 
 	@Override
@@ -412,7 +409,7 @@ public class Home extends Activity implements OnClickListener,
 		case 2:
 			listView = (ListView) findViewById(R.id.listFeeds);
 			textView = (TextView) findViewById(R.id.product_label);
-			textView.setText("Live TV");
+			//textView.setText("Live TV");
 			aa = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, liitems.livebottommenu);
 			listView.setAdapter(aa);
@@ -435,7 +432,7 @@ public class Home extends Activity implements OnClickListener,
 		case 3:
 			listView = (ListView) findViewById(R.id.listFeeds);
 			textView = (TextView) findViewById(R.id.product_label);
-			textView.setText("Websites");
+			//textView.setText("Websites");
 			aa = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1,
 					liitems.websitesbottommenu);

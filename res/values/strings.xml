@@ -25,5 +25,6 @@
     <string name="title_activity_webview">Details</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_secretary_general"></string>
 
 </resources>
