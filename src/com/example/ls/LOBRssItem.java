@@ -27,6 +27,9 @@ public class LOBRssItem {
 		this.BusinessList= value;
 	}
 	public String getdescription() {
+		if(description==null || description == ""){
+			return getErrorMessage();
+		}
 		return description;
 	}
 	public void setdescription(String description) {

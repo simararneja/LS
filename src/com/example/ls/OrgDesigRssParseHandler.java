@@ -38,10 +38,11 @@ public class OrgDesigRssParseHandler extends DefaultHandler {
 	private boolean parsingSocialActivity;
 	private boolean parsingPartyName;
 	private boolean parsingStateName;
-	private boolean parsingNoOfChildren;
-	private boolean parsingBooks;
-	private boolean parsingFavouritePassTime;
-
+	private boolean parsingOfficeAddress1;
+	private boolean parsingOfficephone1;
+	private boolean parsingOfficeAddress2;
+	private boolean parsingOfficephone2;
+	private boolean parsingBiodataUrl;
 	public OrgDesigRssParseHandler() {
 		rssItems = new ArrayList<OrgDesigRssItem>();
 	}
@@ -53,7 +54,8 @@ public class OrgDesigRssParseHandler extends DefaultHandler {
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
-		if ("Members".equalsIgnoreCase(qName)) {
+		
+		if ("Members".equalsIgnoreCase(qName) || "LokSabha".equalsIgnoreCase(qName)) {
 			currentItem = new OrgDesigRssItem();
 		} else if ("Name".equalsIgnoreCase(qName)) {
 			parsingName = true;
@@ -105,13 +107,27 @@ public class OrgDesigRssParseHandler extends DefaultHandler {
 			parsingPictureUrl = true;
 		} else if ("StateName".equalsIgnoreCase(qName)) {
 			parsingStateName = true;
+		} else if ("Permanentphone".equals(qName)) {
+			parsingPermanentphone = true;
+		} else if ("OfficeAddress1".equals(qName)) {
+			parsingOfficeAddress1 = true;
+		} else if ("Oficephone1".equals(qName)) {
+			parsingOfficephone1 = true;
+		} else if ("OfficeAddress2".equals(qName)) {
+			parsingOfficeAddress2 = true;
+		} else if ("Oficephone2".equals(qName)) {
+			parsingOfficephone2 = true;
+		} else if ("EmailID".equals(qName)) {
+			parsingEmailID = true;
+		}  else if ("BiodataUrl".equals(qName)) {
+			parsingBiodataUrl = true;
 		}
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName)
 			throws SAXException {
-		if ("Members".equalsIgnoreCase(qName)) {
+		if ("Members".equalsIgnoreCase(qName) || "LokSabha".equalsIgnoreCase(qName) ) {
 			rssItems.add(currentItem);
 			currentItem = null;
 		} else if ("Name".equalsIgnoreCase(qName)) {
@@ -164,6 +180,20 @@ public class OrgDesigRssParseHandler extends DefaultHandler {
 			parsingPictureUrl = false;
 		} else if ("stateName".equalsIgnoreCase(qName)) {
 			parsingStateName = false;
+		} else if ("Permanentphone".equals(qName)) {
+			parsingPermanentphone = false;
+		} else if ("OfficeAddress1".equals(qName)) {
+			parsingOfficeAddress1 = false;
+		} else if ("Oficephone1".equals(qName)) {
+			parsingOfficephone1 = false;
+		} else if ("OfficeAddress2".equals(qName)) {
+			parsingOfficeAddress2 = false;
+		} else if ("Oficephone2".equals(qName)) {
+			parsingOfficephone2 = false;
+		} else if ("EmailID".equals(qName)) {
+			parsingEmailID = false;
+		}  else if ("BiodataUrl".equals(qName)) {
+			parsingBiodataUrl = false;
 		}
 	}
 
@@ -271,6 +301,47 @@ public class OrgDesigRssParseHandler extends DefaultHandler {
 			if (currentItem != null) {
 				currentItem.setPictureUrl(new String(ch, start, length));
 				parsingPictureUrl = false;
+			}
+		}
+		else if (parsingPermanentAddress) {
+			if (currentItem != null) {
+				currentItem.setPermanentAddress(new String(ch, start, length));
+				parsingPermanentAddress = false;
+			}
+		} else if (parsingPermanentphone) {
+			if (currentItem != null) {
+				currentItem.setPermanentphone(new String(ch, start, length));
+				parsingPermanentphone = false;
+			}
+		} else if (parsingOfficeAddress1) {
+			if (currentItem != null) {
+				currentItem.setOfficeAddress1(new String(ch, start, length));
+				parsingOfficeAddress1 = false;
+			}
+		} else if (parsingOfficephone1) {
+			if (currentItem != null) {
+				currentItem.setOfficephone1(new String(ch, start, length));
+				parsingOfficephone1 = false;
+			}
+		} else if (parsingOfficeAddress2) {
+			if (currentItem != null) {
+				currentItem.setOfficeAddress2(new String(ch, start, length));
+				parsingOfficeAddress2 = false;
+			}
+		} else if (parsingOfficephone2) {
+			if (currentItem != null) {
+				currentItem.setOfficephone2(new String(ch, start, length));
+				parsingOfficephone2 = false;
+			}
+		} else if (parsingEmailID) {
+			if (currentItem != null) {
+				currentItem.setEmailID(new String(ch, start, length));
+				parsingEmailID = false;
+			}
+		}  else if (parsingBiodataUrl) {
+			if (currentItem != null) {
+				currentItem.setBiodataUrl(new String(ch, start, length));
+				parsingBiodataUrl = false;
 			}
 		}
 	}

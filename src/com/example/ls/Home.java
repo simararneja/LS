@@ -8,6 +8,7 @@ import com.example.ls.CustomMenu.OnMenuItemSelectedListener;
 import com.example.ls.SimpleGestureFilter.SimpleGestureListener;
 import com.example.rs.R;
 
+import android.R.integer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -191,10 +192,10 @@ public class Home extends Activity implements OnClickListener,
 
 								i.putExtra("values", values);
 								local.startActivity(i);
-							} else if(memTypeVal == "g") {
+							} else if (memTypeVal == "g") {
 								String[] values = null;
 								Intent intent = new Intent(v.getContext(),
-										SecretaryGeneralDetail.class);
+										OrgDesigDetail.class);
 								values = new String[] {
 										"Secratary General - Lok Sabha",
 										memTypeVal };
@@ -397,7 +398,7 @@ public class Home extends Activity implements OnClickListener,
 						values = new String[] { "states", memTypeVal };
 					else if (memTypeVal.equalsIgnoreCase("b"))
 						values = new String[] { "bday", memTypeVal };
-					
+
 					else
 						values = new String[] { "members", memTypeVal };
 					i.putExtra("values", values);
@@ -410,7 +411,7 @@ public class Home extends Activity implements OnClickListener,
 		case 2:
 			listView = (ListView) findViewById(R.id.listFeeds);
 			textView = (TextView) findViewById(R.id.product_label);
-			//textView.setText("Live TV");
+			// textView.setText("Live TV");
 			aa = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1, liitems.livebottommenu);
 			listView.setAdapter(aa);
@@ -433,7 +434,7 @@ public class Home extends Activity implements OnClickListener,
 		case 3:
 			listView = (ListView) findViewById(R.id.listFeeds);
 			textView = (TextView) findViewById(R.id.product_label);
-			//textView.setText("Websites");
+			// textView.setText("Websites");
 			aa = new ArrayAdapter<String>(this,
 					android.R.layout.simple_list_item_1,
 					liitems.websitesbottommenu);
@@ -722,6 +723,10 @@ public class Home extends Activity implements OnClickListener,
 			// Create a list adapter
 			customlistadpater_feeds listadap = new customlistadpater_feeds(
 					local, R.layout.customlistadapter_feeds, result);
+			if (result == null) {
+				Toast.makeText(getBaseContext(), "Lok sabha not in session",
+						Toast.LENGTH_SHORT).show();
+			}
 			lv.setAdapter(listadap);
 			// Set list view item click listener
 			lv.setOnItemClickListener(new LOBListListener(result, local));

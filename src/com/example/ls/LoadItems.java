@@ -31,9 +31,9 @@ public class LoadItems extends Activity {
 		urlStart = RSSFeedIP;
 		
 		//List items of homscreen sliding menu
-		items = new String[]{"Today's Birthday","Provisional Calender","Question Chart","List Of Business","Bulletin Part - I","Bulletin Part - II","Question List","Daily Synopsis","Notifications","Organisation","Committee Meeting"};
-		links = new String[]{"todaybdaylist.aspx","provisionalCalendar.aspx","member_questions.aspx","businessList.aspx","bulletinpart_I.aspx","bulletinpart_II.aspx","member_questions.aspx","DailySynopsis.aspx","Notifications.aspx","organisation","committee"};
-		type = new String[]{"4","0","0","0","0","0","0","2","0","0","7","5"};
+		items = new String[]{"Today's Birthday","Provisional Calender","List Of Business","Bulletin Part - I","Bulletin Part - II","Question List","Daily Synopsis","Organisation","Committee Meeting"};
+		links = new String[]{"todaybdaylist.aspx","provisionalCalendar.aspx","businessList.aspx","bulletinpart_I.aspx","bulletinpart_II.aspx","member_questions.aspx","DailySynopsis.aspx","organisation","committee"};
+		type = new String[]{"4","0","0","0","0","0","2","0","7","5"};
 		websitesbottommenu = new String[] {"Lok Sabha(English)","Lok Sabha(Hindi)","Rajya Sabha(English)","Rajya Sabha(Hindi)","RS Debates"};
 		websitesbottommenulinks = new String[] {"http://loksabha.nic.in","http://loksabhahindi.nic.in","http://rajyasabha.nic.in","http://rajyasabhahindi.nic.in","http://rsdebate.nic.in"};
 		livebottommenu = new String[]{"Rajya Sabha TV","Lok Sabha TV","Doordarshan"};

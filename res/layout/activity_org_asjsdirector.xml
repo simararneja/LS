@@ -38,7 +38,14 @@
                     android:layout_height="fill_parent"
                     android:layout_below="@id/txtSearchASJS"
                     android:layout_margin="8dp"
+                    android:divider="#446641"
+                    android:dividerHeight="2dp"
+                    android:fastScrollEnabled="true"
+                    android:footerDividersEnabled="true"
+                    android:keepScreenOn="true"
                     android:paddingBottom="15dip"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:paddingTop="15dip" />
             </RelativeLayout>
         </LinearLayout>
@@ -67,7 +74,14 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:layout_below="@id/txtSearchDirector"
+                    android:divider="#446641"
+                    android:dividerHeight="2dp"
+                    android:fastScrollEnabled="true"
+                    android:footerDividersEnabled="true"
+                    android:keepScreenOn="true"
                     android:paddingBottom="15dip"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:paddingTop="15dip" />
             </RelativeLayout>
         </LinearLayout>

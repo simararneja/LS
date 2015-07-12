@@ -29,6 +29,7 @@ import android.widget.TextView;
 
 public class OrgDesigDetail extends Activity {
 
+	public String[] value;
 	public ImageView imageView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class OrgDesigDetail extends Activity {
 			BackCompatibility();
 		}
 		Intent i = getIntent();
-		String[] value = i.getStringArrayExtra("values");
+		value = i.getStringArrayExtra("values");
 		TextView tv = (TextView)findViewById(R.id.txtOrgDesig);
 		tv.setText(value[0]);
 		//tv.setTextColor(color.white);
@@ -61,6 +62,9 @@ public class OrgDesigDetail extends Activity {
 		else if(value[1].equals("d"))
 		{
 			getOrgFeeds(li.getDeputySpeakerURL());
+		}
+		else{
+			getOrgFeeds(li.getSecretaryGeneralURL());
 		}
 	}
 
@@ -114,15 +118,107 @@ public class OrgDesigDetail extends Activity {
 	     
 	    @Override
 	    protected void onPostExecute(List<OrgDesigRssItem> result) {
+	    	
+	    	if(value[1].equals("g")){
+	    		OrgDesigRssItem ri = result.get(0);
+		        String variable;
+		         TextView tv = (TextView)findViewById(R.id.txtOrgEduQua);
+		        variable = ri.getEducatQualification();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgEmail);
+		        variable = ri.getEmailID();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgFName);
+		        variable = ri.getFatherName();
+		        if(variable!=null){tv.setText(variable);}
+		        tv = (TextView)findViewById(R.id.txtOrgSGNO);
+		        tv.setText("Office Address");
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgMName);
+		        variable = ri.getMotherName();
+		        if(variable!=null){tv.setText(variable);}
+		        tv = (TextView)findViewById(R.id.txtOrgMOP);
+		        tv.setText("Office Phone #");
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgName);
+		        variable = ri.getName();
+		        tv.setText(variable);
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgPosHeld);
+		        variable = ri.getPositionHeld();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgDOB);
+		        variable = ri.getPermanentAddress();
+		        if(variable!=null){tv.setText(variable);}
+		        tv = (TextView)findViewById(R.id.txtOrgSGPhoNO);
+		        tv.setText("Permanent Phone #");
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgSGPAddress);
+		        variable = ri.getPermanentphone();
+		        if(variable!=null){tv.setText(variable);}
+		        tv = (TextView)findViewById(R.id.txtOrgSGPhoNO);
+		        tv.setText("Permanent Phone #");
+		        String pictureurl = ri.getPictureUrl();
+				GetXMLTask task = new GetXMLTask();
+		        // Execute the task
+		        task.execute(new String[] { "http://164.100.47.132/lssorgchart/photos/anoop.jpg" });
+		        
+		        
+	    	}
+	    	else{
+	    		OrgDesigRssItem ri = result.get(0);
+		        String variable;
+		        
+		        TextView tv = (TextView)findViewById(R.id.txtOrgDOB);
+		        variable = ri.getDOB();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        /**/tv = (TextView)findViewById(R.id.txtOrgEduQua);
+		        variable = ri.getEducatQualification();
+		        if(variable!=null){tv.setText(variable);}/**/
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgEmail);
+		        variable = ri.getEmailID();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgFName);
+		        variable = ri.getFatherName();
+		        if(variable!=null){tv.setText(variable);} 
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgMName);
+		        variable = ri.getMotherName();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgName);
+		        variable = ri.getName();
+		        tv.setText(variable);
+		        
+		        /**/tv = (TextView)findViewById(R.id.txtOrgPosHeld);
+		        variable = ri.getPositionHeld();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        tv = (TextView)findViewById(R.id.txtOrgSpouseName);
+		        variable = ri.getSpouseName();
+		        if(variable!=null){tv.setText(variable);}
+		        
+		        String pictureurl = ri.getPictureUrl();
+				GetXMLTask task = new GetXMLTask();
+		        // Execute the task
+		        task.execute(new String[] { "http://164.100.47.132/mpimage/photo/3205.jpg" });
+		        
+	    	}
 
-	        OrgDesigRssItem ri = result.get(0);
+/*	        OrgDesigRssItem ri = result.get(0);
 	        String variable;
 	        TextView tv = (TextView)findViewById(R.id.txtOrgDOB);
 	        variable = ri.getDOB();
 	        if(variable!=null){tv.setText(variable);}
-	        /**/tv = (TextView)findViewById(R.id.txtOrgEduQua);
+	        tv = (TextView)findViewById(R.id.txtOrgEduQua);
 	        variable = ri.getEducatQualification();
-	        if(variable!=null){tv.setText(variable);}/**/
+	        if(variable!=null){tv.setText(variable);}
 	        tv = (TextView)findViewById(R.id.txtOrgEmail);
 	        variable = ri.getEmailID();
 	        if(variable!=null){tv.setText(variable);}
@@ -135,7 +231,7 @@ public class OrgDesigDetail extends Activity {
 	        tv = (TextView)findViewById(R.id.txtOrgName);
 	        variable = ri.getName();
 	        tv.setText(variable);
-	        /**/tv = (TextView)findViewById(R.id.txtOrgPosHeld);
+	        tv = (TextView)findViewById(R.id.txtOrgPosHeld);
 	        variable = ri.getPositionHeld();
 	        if(variable!=null){tv.setText(variable);}
 	        tv = (TextView)findViewById(R.id.txtOrgSpouseName);
@@ -144,7 +240,7 @@ public class OrgDesigDetail extends Activity {
 	        String pictureurl = ri.getPictureUrl();
 			GetXMLTask task = new GetXMLTask();
 	        // Execute the task
-	        task.execute(new String[] { "http://164.100.47.132/lssorgchart/photos/anoop.jpg" });
+	        task.execute(new String[] { "http://164.100.47.132/lssorgchart/photos/anoop.jpg" });*/
 	        
 	    }
 	}

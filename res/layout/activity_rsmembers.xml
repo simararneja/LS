@@ -18,7 +18,7 @@
             android:background="@drawable/headernew" />
 
         <ImageView
-            android:layout_width="50dip"
+            android:layout_width="0dp"
             android:layout_height="50dip"
             android:layout_weight="1"
             android:src="@drawable/headermargin" />
@@ -38,7 +38,7 @@
     <EditText
         android:id="@+id/txtSearchList"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_below="@id/product_label"
         android:hint="Search" />
 
@@ -48,13 +48,19 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/txtSearchList"
         android:animateLayoutChanges="true"
-        android:background="#ffffff"
+        android:background="@drawable/water_mark"
+        android:divider="#446641"
+        android:dividerHeight="2dp"
         android:fastScrollEnabled="true"
+        android:footerDividersEnabled="true"
+        android:headerDividersEnabled="true"
         android:keepScreenOn="true"
         android:paddingBottom="15dip"
-        android:paddingTop="15dip"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dip"
         android:textFilterEnabled="true"
-        android:textSize="20dp" >
+        android:textSize="26sp" >
     </ListView>
 
 </RelativeLayout>

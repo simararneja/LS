@@ -31,7 +31,7 @@
                 <TableRow
                     android:id="@+id/orgheadrow"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content" >
+                    android:layout_height="match_parent" >
 
                     <ImageView
                         android:id="@+id/imgOrgImage"
@@ -57,18 +57,24 @@
                     android:layout_height="wrap_content" >
 
                     <TextView
+                        android:id="@+id/txtOrgSGNO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Father&apos;s Name"
                         android:textSize="@dimen/heading_font" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
 
                     <TextView
                         android:id="@+id/txtOrgFName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp" />
                 </TableRow>
 
                 <TableRow
@@ -76,18 +82,23 @@
                     android:layout_height="wrap_content" >
 
                     <TextView
+                        android:id="@+id/txtOrgMOP"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Mother&apos;s Name"
                         android:textSize="@dimen/heading_font" />
+                </TableRow>
+
+                <TableRow>
 
                     <TextView
                         android:id="@+id/txtOrgMName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp" />
                 </TableRow>
 
                 <TableRow
@@ -95,18 +106,23 @@
                     android:layout_height="wrap_content" >
 
                     <TextView
+                        android:id="@+id/txtOrgSGPAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Date of Birth"
                         android:textSize="@dimen/heading_font" />
+                </TableRow>
+
+                <TableRow>
 
                     <TextView
                         android:id="@+id/txtOrgDOB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp" />
                 </TableRow>
 
                 <TableRow
@@ -114,18 +130,23 @@
                     android:layout_height="wrap_content" >
 
                     <TextView
+                        android:id="@+id/txtOrgSGPhoNO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="Spouse Name"
                         android:textSize="@dimen/heading_font" />
+                </TableRow>
+
+                <TableRow>
 
                     <TextView
                         android:id="@+id/txtOrgSpouseName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp" />
                 </TableRow>
 
                 <TableRow
@@ -136,15 +157,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="10dp"
                         android:text="E-mail ID"
                         android:textSize="@dimen/heading_font" />
+                </TableRow>
+
+                <TableRow>
 
                     <TextView
                         android:id="@+id/txtOrgEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp" />
                 </TableRow>
             </TableLayout>
         </TableRow>

@@ -302,7 +302,45 @@ public class OrgDesigRssItem {
 				"Favourite Passtime: " + FavouritePasstime+ "\n" +
 				"Other Info:" + OtherInfo + "\n" +
 				"Country Visits: "+ CountryVisite + "\nClick here to view the picture\n";
-	}	
+	}
+
+
+	public void setOfficeAddress1(String string) {
+			setFatherName(string);
+	}
+	
+	public String getOfficeAddres1(){
+		return getFatherName();
+	}
+
+
+	public void setOfficephone1(String string) {
+		setMotherName(string);
+		
+	}
+	public String getOfficephone1(){
+		return getMotherName();
+	}
+
+	public void setOfficeAddress2(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void setOfficephone2(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void setBiodataUrl(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+		
 	
 
 }

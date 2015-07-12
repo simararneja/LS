@@ -12,6 +12,7 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 	private List<SecretaryGeneralRssItem> rssItems;
 
 	private SecretaryGeneralRssItem currentItem;
+
 	private boolean parsingName;
 	private boolean parsingEducationQual;
 	private boolean parsingPermanentAddress;
@@ -57,8 +58,7 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 			parsingEmailID = true;
 		} else if ("PictureUrl".equals(qName)) {
 			parsingPictureUrl = true;
-		}
-		else if ("BiodataUrl".equals(qName)) {
+		} else if ("BiodataUrl".equals(qName)) {
 			parsingBiodataUrl = true;
 		}
 	}
@@ -89,8 +89,7 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 			parsingEmailID = false;
 		} else if ("PictureUrl".equals(qName)) {
 			parsingPictureUrl = false;
-		}
-		else if ("BiodataUrl".equals(qName)) {
+		} else if ("BiodataUrl".equals(qName)) {
 			parsingBiodataUrl = false;
 		}
 	}
@@ -127,32 +126,27 @@ public class SecretaryGeneralParseHandler extends DefaultHandler {
 				currentItem.setOfficephone1(new String(ch, start, length));
 				parsingOfficephone1 = false;
 			}
-		}
-		else if (parsingOfficeAddress2) {
+		} else if (parsingOfficeAddress2) {
 			if (currentItem != null) {
 				currentItem.setOfficeAddress2(new String(ch, start, length));
 				parsingOfficeAddress2 = false;
 			}
-		}
-		else if (parsingOfficephone2) {
+		} else if (parsingOfficephone2) {
 			if (currentItem != null) {
 				currentItem.setOfficephone2(new String(ch, start, length));
 				parsingOfficephone2 = false;
 			}
-		}
-		else if (parsingEmailID) {
+		} else if (parsingEmailID) {
 			if (currentItem != null) {
 				currentItem.setEmailID(new String(ch, start, length));
 				parsingEmailID = false;
 			}
-		}
-		else if (parsingPictureUrl) {
+		} else if (parsingPictureUrl) {
 			if (currentItem != null) {
 				currentItem.setictureUrl(new String(ch, start, length));
 				parsingPictureUrl = false;
 			}
-		}
-		else if (parsingBiodataUrl) {
+		} else if (parsingBiodataUrl) {
 			if (currentItem != null) {
 				currentItem.setBiodataUrl(new String(ch, start, length));
 				parsingBiodataUrl = false;

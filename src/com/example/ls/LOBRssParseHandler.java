@@ -32,10 +32,11 @@ public class LOBRssParseHandler extends DefaultHandler {
 	
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-		
-		if("ErrorMsg".equalsIgnoreCase(qName)){
-			parsingErrorMessage = true;
+		if("Members".equals(qName)){
 			currentItem = new LOBRssItem();
+		}
+		else if("ErrorMsg".equalsIgnoreCase(qName)){
+			parsingErrorMessage = true;		
 		}
 		if ("monthslot".equals(qName))
 		{
@@ -58,10 +59,14 @@ public class LOBRssParseHandler extends DefaultHandler {
 	
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if("ErrorMsg".equalsIgnoreCase(qName)){
-			parsingErrorMessage = false;
+		if("Members".equals(qName)){
 			rssItems.add(currentItem);
 			currentItem = null;
+		}
+		if("ErrorMsg".equalsIgnoreCase(qName)){
+			
+			parsingErrorMessage = false;
+		
 		}
 		if ("Item".equals(qName)) {
 			rssItems.add(currentItem);
