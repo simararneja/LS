@@ -149,7 +149,7 @@ public class Home extends Activity implements OnClickListener,
 					GetNotiFeeds(url);
 				} else if (Type == "2") {
 					HideMenu();
-					Intent ql = new Intent(local, QuestionList.class);
+					Intent ql = new Intent(local, QList.class);
 					local.startActivity(ql);
 				} else if (Type == "4") {
 					HideMenu();
@@ -218,7 +218,7 @@ public class Home extends Activity implements OnClickListener,
 				}
 			}
 		});
-
+		ShowMenu();
 	}
 
 	@Override

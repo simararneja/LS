@@ -32,7 +32,7 @@
             android:layout_height="fill_parent"
             android:layout_marginBottom="50dp"
             android:background="#ffffff"
-            android:textSize="20sp"
+            android:textSize="24sp"
             android:textStyle="bold" >
         </ListView>
     </LinearLayout>

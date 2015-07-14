@@ -478,9 +478,6 @@ public class LokSabhaMembers extends Activity {
 				lv.setOnItemClickListener(new BirthdayWiseLoMListListener(
 						result, local));
 
-				// HideMenu();
-				// Home hm = new Home();
-				// hm.SetItems(result);
 			}
 		}
 
@@ -541,9 +538,6 @@ public class LokSabhaMembers extends Activity {
 				// Set list view item click listener
 				lv.setOnItemClickListener(new CommMemListListener(result, local));
 
-				// HideMenu();
-				// Home hm = new Home();
-				// hm.SetItems(result);
 			}
 		}
 	}

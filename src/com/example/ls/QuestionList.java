@@ -152,10 +152,7 @@ public class QuestionList extends Activity {
 	                     
 	        // Set list view item click listener
 	        lv.setOnItemClickListener(new UQLListListener(result, local));
-	        
-	        //HideMenu();
-	    	//Home hm = new Home();
-	    	//hm.SetItems(result);
+	      
 	    }
 	}
 	

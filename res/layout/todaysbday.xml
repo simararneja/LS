@@ -31,13 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="5dip"
+        android:orientation="horizontal"
         android:padding="3dip" >
-
-        <ImageView
-            android:id="@+id/list_imageroses"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:src="@drawable/rose" />
     </LinearLayout>
 
     <!-- Member's Name -->
@@ -50,7 +45,7 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:text="Members_Name"
         android:textColor="#040404"
-        android:textSize="16dip"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -66,7 +61,7 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:text="Date of birth"
         android:textColor="#343434"
-        android:textSize="12dip" />
+        android:textSize="14sp" />
 
     <!-- Party Name -->
 
@@ -80,7 +75,7 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:text="ConstituencyAndState"
         android:textColor="#343434"
-        android:textSize="14dip" />
+        android:textSize="16sp" />
 
     <!-- ConstituencyAndState Name -->
 
@@ -94,7 +89,7 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:text="ConstituencyAndState"
         android:textColor="#343434"
-        android:textSize="12dip" />
+        android:textSize="16sp" />
 
     <!-- Email Address -->
 
@@ -108,6 +103,14 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:text="Email address"
         android:textColor="#343434"
-        android:textSize="12dip" />
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/list_imageroses"
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:layout_alignBottom="@+id/ConstituencyAndState"
+        android:layout_alignRight="@+id/flowers"
+        android:src="@drawable/rose" />
 
 </RelativeLayout>

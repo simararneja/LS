@@ -118,8 +118,7 @@ public class BirthdayWiseLoMRssItem {
 				"Local Phone: "+ Localphone + "\n" +
 				"Email-ID: " + EmailID + "\n";*/
 		return MemberName+"\n"+
-		Partyname + "\n" +
-		stateName;
+		Partyname + "\n" ;
 	}
 	
 	
