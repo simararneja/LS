@@ -392,12 +392,14 @@ public class Home extends Activity implements OnClickListener,
 					// We have to set data for our new Intent
 					String memTypeVal = liitems.membertypevalues[position];
 					String[] values;
-					if (memTypeVal.equalsIgnoreCase("p"))
+					if (memTypeVal.equalsIgnoreCase("p" ))
 						values = new String[] { "party", memTypeVal };
 					else if (memTypeVal.equalsIgnoreCase("s"))
 						values = new String[] { "states", memTypeVal };
 					else if (memTypeVal.equalsIgnoreCase("b"))
 						values = new String[] { "bday", memTypeVal };
+					else if(memTypeVal.equalsIgnoreCase("v"))
+						values = new String[] {"vacant" ,memTypeVal};
 
 					else
 						values = new String[] { "members", memTypeVal };

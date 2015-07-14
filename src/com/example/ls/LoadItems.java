@@ -38,8 +38,8 @@ public class LoadItems extends Activity {
 		websitesbottommenulinks = new String[] {"http://loksabha.nic.in","http://loksabhahindi.nic.in","http://rajyasabha.nic.in","http://rajyasabhahindi.nic.in","http://rsdebate.nic.in"};
 		livebottommenu = new String[]{"Rajya Sabha TV","Lok Sabha TV","Doordarshan"};
 		livebottommenulinks = new String[]{"http://rstv.nic.in","http://loksabhatv.nic.in","http://webcast.gov.in"};
-		membertypes = new String[] {"Alphabetical","State wise","Party wise","Birthday wise","Women Members","Nominated Members"};
-		membertypevalues = new String[] {"a","s","p","b","w","n"};
+		membertypes = new String[] {"Alphabetical","State wise","Party wise","Birthday wise","Women Members","Nominated Members","Vacant Consituencies"};
+		membertypevalues = new String[] {"a","s","p","b","w","n","v"};
 		months = new String[]{"January","February","March","April","May","June","July","August","September","October","November","December"};
 		postMonthLink = new String[]{"janmonth.aspx?monthname=january","febmonth.aspx?monthname=february","marchmonth.aspx?monthname=march","aprilmonth.aspx?monthname=april","maymonth.aspx?monthname=may","junemonth.aspx?monthname=june","julymonth.aspx?monthname=july","augustmonth.aspx?monthname=august","septmonth.aspx?monthname=september","octmonth.aspx?monthname=october","novmonth.aspx?monthname=november","decmonth.aspx?monthname=december" };
 		organisationDesignations = new String[]{"Speaker","Deputy Speaker","Secretary General","Secretariat"};
