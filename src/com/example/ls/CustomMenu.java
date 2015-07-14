@@ -1,7 +1,7 @@
 package com.example.ls;
 import java.util.ArrayList;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.content.Context;
 import android.view.Display;

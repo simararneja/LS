@@ -2,7 +2,7 @@ package com.example.ls;
 
 import java.util.List;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.content.Context;
 import android.graphics.Color;

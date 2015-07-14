@@ -1,6 +1,6 @@
 package com.example.ls;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.net.Uri;
 import android.os.Bundle;

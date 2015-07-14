@@ -1,7 +1,7 @@
 package com.example.ls;
 
+import com.example.loksabha.R;
 import com.example.ls.util.SystemUiHider;
-import com.example.rs.R;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

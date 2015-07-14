@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.os.AsyncTask;
 import android.os.Build;

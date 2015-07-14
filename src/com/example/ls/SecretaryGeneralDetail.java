@@ -7,7 +7,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.annotation.TargetApi;
 import android.app.ActionBar;

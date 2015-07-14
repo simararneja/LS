@@ -6,7 +6,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.os.AsyncTask;
 import android.os.Bundle;

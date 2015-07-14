@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
  
 
-import com.example.rs.R;
+import com.example.loksabha.R;
 
 import android.app.Activity;
 import android.content.Context;

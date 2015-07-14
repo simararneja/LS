@@ -3,10 +3,10 @@ package com.example.ls;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.loksabha.R;
 import com.example.ls.CustomMenuItem;
 import com.example.ls.CustomMenu.OnMenuItemSelectedListener;
 import com.example.ls.SimpleGestureFilter.SimpleGestureListener;
-import com.example.rs.R;
 
 import android.R.integer;
 import android.net.Uri;
