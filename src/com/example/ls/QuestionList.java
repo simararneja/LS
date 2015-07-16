@@ -26,24 +26,11 @@ public class QuestionList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_question_list);
-		/*TabHost tabHost=(TabHost)findViewById(R.id.tabHostQl);
-		tabHost.setup();*/
 		if (CompatibilityManager.isIceCreamSandwich()) 
 		{
 			BackCompatibility();
 		}
-		/*}
-		TabSpec spec1=tabHost.newTabSpec("Tab 1");
-		spec1.setContent(R.id.tab1);
-		spec1.setIndicator("Starred Questions");
-
-		TabSpec spec2=tabHost.newTabSpec("Tab 2");
-		spec2.setIndicator("Un-Starred Questions");
-		spec2.setContent(R.id.tab2);
-
-		tabHost.addTab(spec1);
-		tabHost.addTab(spec2);
-		tabHost.getChildAt(0).setBackgroundColor(Color.rgb(247, 195, 0));*/
+	
 		local = this;
 		LoadItems li = new LoadItems();
 		GetSQLFeeds(li.getQuestionListUrl());

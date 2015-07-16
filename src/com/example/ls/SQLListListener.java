@@ -17,9 +17,9 @@ public class SQLListListener implements OnItemClickListener {
     // Calling activity reference
     Activity activity;
     /** We will set those references in our constructor.*/
-    public SQLListListener(List<SQLRssItem> aListItems, Activity anActivity) {
-        listItems = aListItems;
-        activity  = anActivity;
+    public SQLListListener(List<SQLRssItem> ListItems, Activity Activity) {
+        this.listItems = ListItems;
+        this.activity  = Activity;
     }
  
     /** Start a browser with url from the rss item.*/

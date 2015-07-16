@@ -110,4 +110,8 @@ public class LoadItems extends Activity {
 		
 		return urlStart + "member_questions.aspx";
 	}
+
+	public String getMembersLoginUrl() {
+		return "www.mpls.nic.in";
+	}
 }

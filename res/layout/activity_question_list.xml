@@ -1,47 +1,32 @@
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/tabHost"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabcontent"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
 
-    <TabWidget
-        android:id="@android:id/tabs"
+    <LinearLayout
+        android:id="@+id/tab1"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:paddingTop="2dp" >
 
-    <FrameLayout
-        android:id="@android:id/tabcontent"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
-        <LinearLayout
-            android:id="@+id/tab1"
-            android:layout_width="fill_parent"
+        <ListView
+            android:id="@+id/lstStarredQues"
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingBottom="15dp"
-            android:paddingTop="60dp" >
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/water_mark"
+            android:divider="#446641"
+            android:dividerHeight="2dp"
+            android:fastScrollEnabled="true"
+            android:footerDividersEnabled="true"
+            android:keepScreenOn="true"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:textFilterEnabled="true"
+            android:textSize="50sp" />
+    </LinearLayout>
 
-            <ListView
-                android:id="@+id/lstStarredQues"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="20dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tab2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingBottom="15dp"
-            android:paddingTop="60dp" >
-
-            <ListView
-                android:id="@+id/lstUnStarredQues"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="10dp" />
-        </LinearLayout>
-    </FrameLayout>
-
-</TabHost>
+</RelativeLayout>

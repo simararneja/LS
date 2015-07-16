@@ -430,7 +430,6 @@ public class Home extends Activity implements OnClickListener,
 					local.startActivity(i);
 				}
 			});
-			// return true;
 			break;
 
 		case 3:
@@ -458,10 +457,11 @@ public class Home extends Activity implements OnClickListener,
 			break;
 
 		case 4:
+			LoadItems li = new LoadItems();
 			// We create an Intent which is going to display data
 			Intent i = new Intent(Intent.ACTION_VIEW);
 			// We have to set data for our new Intent
-			i.setData(Uri.parse("http://mpls.nic.in"));
+			i.setData(Uri.parse(li.getMembersLoginUrl()));
 			// And start activity with our Intent
 			local.startActivity(i);
 			// return true;
@@ -518,10 +518,6 @@ public class Home extends Activity implements OnClickListener,
 	public void GetLoMFeeds(String link) {
 		HideMenu();
 		GetLoMRSSDataTask task = new GetLoMRSSDataTask();
-
-		// Start download RSS task
-		// task.execute( "http://164.100.47.5/IPADFeeds/Bulletin1.aspx");
-		// task.execute( "http://164.100.47.5/AndroidFeeds/BusinessFeeds.aspx");
 		task.execute(link);
 
 		// Debug the thread name
