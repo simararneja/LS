@@ -149,7 +149,7 @@ public class Home extends Activity implements OnClickListener,
 					GetNotiFeeds(url);
 				} else if (Type == "2") {
 					HideMenu();
-					Intent ql = new Intent(local, QList.class);
+					Intent ql = new Intent(local, QuestionList.class);
 					local.startActivity(ql);
 				} else if (Type == "4") {
 					HideMenu();
@@ -725,10 +725,7 @@ public class Home extends Activity implements OnClickListener,
 			// Create a list adapter
 			customlistadpater_feeds listadap = new customlistadpater_feeds(
 					local, R.layout.customlistadapter_feeds, result);
-			if (result == null) {
-				Toast.makeText(getBaseContext(), "Lok sabha not in session",
-						Toast.LENGTH_SHORT).show();
-			}
+			
 			lv.setAdapter(listadap);
 			// Set list view item click listener
 			lv.setOnItemClickListener(new LOBListListener(result, local));

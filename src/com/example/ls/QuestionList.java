@@ -26,12 +26,13 @@ public class QuestionList extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_question_list);
-		TabHost tabHost=(TabHost)findViewById(R.id.tabHost);
-		tabHost.setup();
+		/*TabHost tabHost=(TabHost)findViewById(R.id.tabHostQl);
+		tabHost.setup();*/
 		if (CompatibilityManager.isIceCreamSandwich()) 
 		{
 			BackCompatibility();
 		}
+		/*}
 		TabSpec spec1=tabHost.newTabSpec("Tab 1");
 		spec1.setContent(R.id.tab1);
 		spec1.setIndicator("Starred Questions");
@@ -42,11 +43,11 @@ public class QuestionList extends Activity {
 
 		tabHost.addTab(spec1);
 		tabHost.addTab(spec2);
-		tabHost.getChildAt(0).setBackgroundColor(Color.rgb(247, 195, 0));
+		tabHost.getChildAt(0).setBackgroundColor(Color.rgb(247, 195, 0));*/
 		local = this;
 		LoadItems li = new LoadItems();
-		GetSQLFeeds(li.GetStarredQuestionsURL());
-		GetUQLFeeds(li.GetUnStarredQuestionsURL());
+		GetSQLFeeds(li.getQuestionListUrl());
+		//GetUQLFeeds(li.GetUnStarredQuestionsURL());
 	}
 
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
@@ -104,6 +105,7 @@ public class QuestionList extends Activity {
 	    @Override
 	    protected void onPostExecute(List<SQLRssItem> result) {
 	        // Get a ListView from main view
+	    	
 	        ListView lv = (ListView)findViewById(R.id.lstStarredQues);
 	                     
 	        // Create a list adapter
@@ -114,9 +116,7 @@ public class QuestionList extends Activity {
 	        // Set list view item click listener
 	        lv.setOnItemClickListener(new SQLListListener(result, local));
 	        
-	        //HideMenu();
-	    	//Home hm = new Home();
-	    	//hm.SetItems(result);
+	     
 	    }
 	}
 	private class GetUQLRSSDataTask extends AsyncTask<String, Void, List<UQLRssItem> > {
@@ -142,7 +142,7 @@ public class QuestionList extends Activity {
 	     
 	    @Override
 	    protected void onPostExecute(List<UQLRssItem> result) {
-	        // Get a ListView from main view
+	      /*  // Get a ListView from main view
 	        ListView lv = (ListView)findViewById(R.id.lstUnStarredQues);
 	                     
 	        // Create a list adapter
@@ -151,7 +151,7 @@ public class QuestionList extends Activity {
 	        lv.setAdapter(adapter);
 	                     
 	        // Set list view item click listener
-	        lv.setOnItemClickListener(new UQLListListener(result, local));
+	        lv.setOnItemClickListener(new UQLListListener(result, local));*/
 	      
 	    }
 	}

@@ -12,6 +12,7 @@ public class RssItem {
 	private String Link;
 	private String MonthsName;
 	private String BusinessList;
+	private String head;
 	
 	
 	public String getdescription() {
@@ -28,7 +29,14 @@ public class RssItem {
 	}
 	@Override
 	public String toString() {
-			return description;
+			return head;
+	}
+	public void setHead(String string) {
+		this.head= string;
+		
+	}
+	public String getHead(){
+		return head;
 	}
 	
 	

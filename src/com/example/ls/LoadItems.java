@@ -105,4 +105,9 @@ public class LoadItems extends Activity {
 	public  String getMemberPictureURL(){
 		return "http://164.100.47.132/mpimage/photo/";
 	}
+
+	public String getQuestionListUrl() {
+		
+		return urlStart + "member_questions.aspx";
+	}
 }

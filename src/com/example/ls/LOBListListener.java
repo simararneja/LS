@@ -30,10 +30,14 @@ public class LOBListListener implements OnItemClickListener {
         Intent i = new Intent(Intent.ACTION_VIEW);
         // We have to set data for our new Intent
         String URL = listItems.get(pos).getLink();
-        if(URL.contains(".pdf")){}
-        	URL = LoadItems.getPDFReaderLink()+URL;
-        i.setData(Uri.parse(URL));
-        // And start activity with our Intent
-        activity.startActivity(i);
+        if(URL!=null){
+        	
+        	if(URL.contains(".pdf"))
+        		URL = LoadItems.getPDFReaderLink()+URL;
+        	i.setData(Uri.parse(URL));
+        	// And start activity with our Intent
+        	activity.startActivity(i);
+        }
+        
     }
 }

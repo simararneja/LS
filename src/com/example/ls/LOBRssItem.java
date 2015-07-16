@@ -50,6 +50,9 @@ public class LOBRssItem {
 	}
 	@Override
 	public String toString() {
+		if(MonthsName== null && BusinessList ==null){
+			return errorMessage;
+		}
 			return MonthsName + " " + BusinessList;
 	}
 	

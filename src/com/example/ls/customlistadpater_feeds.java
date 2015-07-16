@@ -41,7 +41,7 @@ public class customlistadpater_feeds extends ArrayAdapter {
 			text.setText(items.get(position).toString());
 
 			text.setTextColor(Color.rgb(54, 163, 54));
-			text.setTextSize(24);
+			text.setTextSize(20);
 			text.setBackgroundColor(Color.TRANSPARENT);
 			
 
