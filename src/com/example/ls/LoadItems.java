@@ -58,9 +58,9 @@ public class LoadItems extends Activity {
 	{
 		return urlStart + "member_biography.aspx?member_id="+ID;
 	}
-	public String GetMemQuestionsURL(String MP_Code)
+	public String getMemQuestionsURL(String MP_Code)
 	{
-		return urlStart+"QuestionList.aspx?member_id=" + MP_Code;
+		return urlStart+"starred_UnstarredQuestionList.aspx?member_id=" + MP_Code;
 	}
 	public String GetMemAssurancesURL(String MP_Code)
 	{

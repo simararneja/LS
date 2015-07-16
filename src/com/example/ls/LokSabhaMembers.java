@@ -89,9 +89,6 @@ public class LokSabhaMembers extends Activity {
 			getListOfMemberFeeds(urlstart + "DetailPartyWiseList.aspx?partyID="
 					+ strvalues[2]);
 		} else if (strvalues[0].equalsIgnoreCase("membday")) {
-			// Toast.makeText(this,
-			// urlstart+"MonthwiseMembersBday.aspx?monthname="+strvalues[2] ,
-			// Toast.LENGTH_LONG).show();
 			getBirthdayWiseListOfMemberFeeds(urlstart
 					+ li.postMonthLink[Integer.parseInt(strvalues[2])]);
 		} else if (strvalues[0].equalsIgnoreCase("org")) {

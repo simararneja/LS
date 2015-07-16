@@ -1,12 +1,6 @@
 package com.example.ls;
 
-/**
- * This code encapsulates RSS item data.
- * Our application needs title and link data.
- * 
- * @author ITCuties
- *
- */
+
 public class MQLRssItem {
 	
 	private String Dslot;
@@ -18,6 +12,7 @@ public class MQLRssItem {
 	private String ministryName;
 	private String subject;
 	private String qid;
+	private String errorMessage;
 	
 	public void setses_no(String ses_no) {
 		this.ses_no= ses_no;
@@ -75,10 +70,21 @@ public class MQLRssItem {
 	}
 	@Override
 	public String toString() {
-		return qid + "\n" +
-				"Question Type: " + qtype +"\n"+
-				"Subject: " + subject + "\n" +
-				"Ministry: " + ministryName;
+		if(qid!=null){
+			
+			return qid + "\n" +
+					"Question Type: " + qtype +"\n"+
+					"Subject: " + subject + "\n" +
+					"Ministry: " + ministryName;
+		}
+		return errorMessage;
+	}
+	public void setErrorMessage(String string) {
+		errorMessage = string;
+		
+	}
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 	
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class MQLListListener implements OnItemClickListener {
@@ -26,11 +27,16 @@ public class MQLListListener implements OnItemClickListener {
     @Override
 	public void onItemClick(AdapterView<?> adapter, View view, int pos, long id) {
         // We create an Intent which is going to display data
+    	
         Intent i = new Intent(Intent.ACTION_VIEW);
         // We have to set data for our new Intent
         MQLRssItem ar = (MQLRssItem)adapter.getItemAtPosition(pos);
-        i.setData(Uri.parse(ar.getlink()));
-        // And start activity with our Intent
-        activity.startActivity(i);
+        if(ar.getlink()!=null){
+        	
+        	i.setData(Uri.parse(ar.getlink()));
+        	// And start activity with our Intent
+        	activity.startActivity(i);
+        }
+        Toast.makeText(view.getContext(), "No Link", Toast.LENGTH_SHORT).show();
     }
 }
