@@ -25,6 +25,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,15 +36,17 @@ import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
 public class TabMemberDetails extends Activity  {
-
+	
 	public TabMemberDetails local;
 	public ImageView imageView;
+	private float lastX;
+	private TabHost tabHost;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tab_member_details);
-		TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+		tabHost = (TabHost) findViewById(R.id.tabHost);
 		tabHost.setup();
 		if (CompatibilityManager.isIceCreamSandwich()) {
 			BackCompatibility();
@@ -89,6 +92,7 @@ public class TabMemberDetails extends Activity  {
 		GetXMLTask task = new GetXMLTask();
 		// Execute the task
 		task.execute(new String[] { pictureurl });
+		
 		String BioDataURL = li.GetMemBioDataURL(mp_code);
 		GetBioDataFeeds(BioDataURL);
 		String QuestionURL = li.getMemQuestionsURL(mp_code);
@@ -98,6 +102,56 @@ public class TabMemberDetails extends Activity  {
 		GetAssurancesFeeds(AssurancesURL);
 		// Toast.makeText(this, QuestionURL, Toast.LENGTH_SHORT).show();
 	}
+	
+
+	@Override
+	public boolean onTouchEvent(MotionEvent touchevent) {
+		switch (touchevent.getAction()) {
+	    // when user first touches the screen to swap
+	    case MotionEvent.ACTION_DOWN: {
+	        lastX = touchevent.getX();
+	        break;
+	    }
+	    case MotionEvent.ACTION_UP: {
+	        float currentX = touchevent.getX();
+
+	        // if left to right swipe on screen
+	        if (lastX < currentX) {
+
+	            switchTabs(false);
+	        }
+
+	        // if right to left swipe on screen
+	        if (lastX > currentX) {
+	            switchTabs(true);
+	        }
+
+	        break;
+	    }
+	    }
+	    return false;
+	}
+
+	private void switchTabs(boolean direction) {
+		if (direction) // true = move left
+        {
+            if (tabHost.getCurrentTab() == 0)
+                tabHost.setCurrentTab(tabHost.getTabWidget().getTabCount() - 1);
+            else
+                tabHost.setCurrentTab(tabHost.getCurrentTab() - 1);
+        } else
+        // move right
+        {
+            if (tabHost.getCurrentTab() != (tabHost.getTabWidget()
+                    .getTabCount() - 1))
+                tabHost.setCurrentTab(tabHost.getCurrentTab() + 1);
+            else
+                tabHost.setCurrentTab(0);
+        }
+		
+	}
+
+	
 
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 	public void BackCompatibility() {

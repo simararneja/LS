@@ -1,0 +1,89 @@
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabHost_meetings"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TabWidget
+        android:id="@android:id/tabs"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:id="@android:id/tabcontent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/tab1_date_meetings"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingTop="60dp" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <EditText
+                    android:id="@+id/txtSearch_date_meetings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:hint="Search"
+                    android:paddingTop="8dp" />
+
+                <ListView
+                    android:id="@+id/lst_date_meetings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/txtSearch_date_meetings"
+                    android:layout_margin="8dp"
+                    android:divider="#446641"
+                    android:dividerHeight="2dp"
+                    android:fastScrollEnabled="true"
+                    android:footerDividersEnabled="true"
+                    android:keepScreenOn="true"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="10dip" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tab2_com_meetings"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingTop="60dp" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
+
+                <EditText
+                    android:id="@+id/txtSearch_com_meetings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Search"
+                    android:paddingTop="8dp" />
+
+                <ListView
+                    android:id="@+id/lstCom_meetings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@id/txtSearch_com_meetings"
+                    android:divider="#446641"
+                    android:dividerHeight="2dp"
+                    android:fastScrollEnabled="true"
+                    android:footerDividersEnabled="true"
+                    android:keepScreenOn="true"
+                    android:paddingBottom="5dip"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingTop="10dip" />
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</TabHost>

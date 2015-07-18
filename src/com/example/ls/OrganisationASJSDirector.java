@@ -111,7 +111,6 @@ public class OrganisationASJSDirector extends Activity {
 	        // Create a list adapter
 	        final ArrayAdapter<OrgASJSRssItem> adapter = new ArrayAdapter<OrgASJSRssItem>(local,android.R.layout.simple_list_item_1, result);
 	        lv.setAdapter(adapter);
-	        //lv.setAdapter(listadap);
 	        EditText inputSearch = (EditText)findViewById(R.id.txtSearchASJS);
 	        inputSearch.addTextChangedListener(new TextWatcher() {
 	            
@@ -186,12 +185,7 @@ public class OrganisationASJSDirector extends Activity {
 	                // TODO Auto-generated method stub                          
 	            }
 	        });
-	        // Set list view item click listener
-	        //lv.setOnItemClickListener(new ListListener(result, local));
-	        //HideMenu();
 	        
-	    	//Home hm = new Home();
-	    	//hm.SetItems(result);
 	    }
 	}
 }

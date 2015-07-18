@@ -79,6 +79,11 @@
             android:name="com.example.ls.SecretaryGeneralDetail"
             android:label="@string/title_activity_secretary_general" >
         </activity>
+        <activity
+            android:name="com.example.ls.CommitteeMeeting"
+            android:label="@string/title_activity_com_meeting" >
+            and
+        </activity>
     </application>
 
 </manifest>

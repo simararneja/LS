@@ -121,8 +121,6 @@ public class TodaysBirthday extends Activity {
 	        }
 	 
 	        list=(ListView)findViewById(R.id.lstBday);
-	 
-	        // Getting adapter by passing xml data ArrayList
 	        adapter = new LazyAdapter(local, birthdayList);
 	        list.setAdapter(adapter);
 	 

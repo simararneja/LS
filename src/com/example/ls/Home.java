@@ -207,7 +207,7 @@ public class Home extends Activity implements OnClickListener,
 					});
 
 				} else if (url.contains("com")) {
-					Intent i = new Intent(local, LokSabhaMembers.class);
+					Intent i = new Intent(local, CommitteeMeeting.class);
 					String com[] = new String[] { "comMain" };
 					i.putExtra("values", com);
 					local.startActivity(i);
