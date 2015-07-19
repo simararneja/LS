@@ -48,11 +48,11 @@ public class OrgDesigDetail extends Activity {
 		tv.setTypeface(typeFace);
 		tv = (TextView)findViewById(R.id.txtOrgName);
 		//tv.setTextColor(color.white);
-		tv.setTextSize(19);
-		tv.setTextColor(Color.WHITE);
-		tv.setTypeface(typeFace);
+		tv.setTextSize(26);
+		//tv.setTextColor(Color.GREEN);
+		//tv.setTypeface(typeFace);
 		TableRow tr = (TableRow)findViewById(R.id.orgheadrow);
-		tr.setBackgroundColor(Color.rgb(190, 14, 14));
+		tr.setBackgroundColor(Color.rgb(44, 140, 15));
 		LoadItems li = new LoadItems();
 		imageView = (ImageView)findViewById(R.id.imgOrgImage);
 		if(value[1].equals("s"))
