@@ -207,7 +207,12 @@ public class OrgDesigDetail extends Activity {
 		        String pictureurl = ri.getPictureUrl();
 				GetXMLTask task = new GetXMLTask();
 		        // Execute the task
-		        task.execute(new String[] { "http://164.100.47.132/mpimage/photo/3205.jpg" });
+				if(value[1].equals("s")){
+					task.execute(new String[] { "http://164.100.47.132/mpimage/photo/220.jpg" });
+				}else{
+					
+					task.execute(new String[] { "http://164.100.47.132/mpimage/photo/3205.jpg" });
+				}
 		        
 	    	}
 

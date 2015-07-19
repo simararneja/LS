@@ -100,9 +100,10 @@ public class OrgASJSRssItem
 	@Override
 	public String toString() 
 	{
-			return Ename +", "+Designation +"\n"+
+			return "Name " + Ename +"\n"+ "Designation: "+Designation +"\n\n"+
 					WorkResponsibility+"\n"+
-					EmailID;
+					"Email: "+ EmailID + "\n\n"+
+					"Phone: " + Telephone1 +", "+ Telephone2;
 	}
 	
 

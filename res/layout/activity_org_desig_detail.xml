@@ -60,9 +60,11 @@
                         android:id="@+id/txtOrgSGNO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Father&apos;s Name"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -74,7 +76,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:fontFamily=""
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -88,7 +92,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="Mother&apos;s Name"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow>
@@ -98,7 +103,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -112,7 +118,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="Date of Birth"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow>
@@ -122,7 +129,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -136,7 +144,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="Spouse Name"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow>
@@ -146,7 +155,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -159,7 +169,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="E-mail ID"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow>
@@ -169,7 +180,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp" />
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold" />
                 </TableRow>
             </TableLayout>
         </TableRow>
@@ -195,7 +207,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Education Qualification"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -207,9 +220,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
                         android:lineSpacingExtra="5dp"
-                        android:maxLines="100" />
+                        android:maxLines="100"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -222,7 +237,8 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="20dp"
                         android:text="Position Held:"
-                        android:textSize="@dimen/heading_font" />
+                        android:textSize="@dimen/heading_font"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow
@@ -235,7 +251,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:lineSpacingExtra="5dp"
-                        android:maxLines="100" />
+                        android:maxLines="100"
+                        android:textStyle="bold" />
                 </TableRow>
 
                 <TableRow

@@ -27,7 +27,7 @@
                 <EditText
                     android:id="@+id/txtSearch_date_meetings"
                     android:layout_width="fill_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="35dp"
                     android:hint="Search"
                     android:paddingTop="8dp" />
 

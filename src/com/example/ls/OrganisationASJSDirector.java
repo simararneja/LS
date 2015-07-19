@@ -39,7 +39,7 @@ public class OrganisationASJSDirector extends Activity {
 		tabHost.setup();
 		TabSpec spec1=tabHost.newTabSpec("Tab 1");
 		spec1.setContent(R.id.tab1);
-		spec1.setIndicator("AS - JS");
+		spec1.setIndicator("SCCY-AS - JS");
 		TabSpec spec2=tabHost.newTabSpec("Tab 2");
 		spec2.setIndicator("Directors");
 		spec2.setContent(R.id.tab2);

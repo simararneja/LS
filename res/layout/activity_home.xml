@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/businessnew"
+            android:background="@drawable/headerbussiness7"
             android:contentDescription="Business" >
         </ImageView>
 
@@ -50,9 +50,9 @@
 
             <ImageButton
                 android:id="@+id/menu_button"
-                android:layout_width="40dp"
+                android:layout_width="48dp"
                 android:layout_height="58dp"
-                android:background="@drawable/button_1632"
+                android:background="@drawable/button_890"
                 android:shadowColor="#A8A8A8"
                 android:shadowDx="0"
                 android:shadowDy="0"
@@ -68,9 +68,9 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
-                android:background="@drawable/headernew" />
+                android:background="@drawable/headerls" />
 
             <ImageView
                 android:layout_width="50dip"
