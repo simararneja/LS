@@ -35,8 +35,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
 
-public class TabMemberDetails extends Activity  {
-	
+public class TabMemberDetails extends Activity {
+
 	public TabMemberDetails local;
 	public ImageView imageView;
 	private float lastX;
@@ -65,7 +65,7 @@ public class TabMemberDetails extends Activity  {
 		spec3.setContent(R.id.tab3);
 
 		TabSpec spec4 = tabHost.newTabSpec("Tab 4");
-		spec4.setIndicator("Special Mentions");
+		spec4.setIndicator("Govt Bills");
 		spec4.setContent(R.id.tab4);
 
 		tabHost.addTab(spec1);
@@ -78,80 +78,75 @@ public class TabMemberDetails extends Activity  {
 		LoadItems li = new LoadItems();
 		Intent i = getIntent();
 		String mp_code = i.getStringExtra("MP_Code");
-		/**/TableRow tr = (TableRow) findViewById(R.id.headrow);
-		tr.setBackgroundColor(Color.rgb(190, 14, 14));
+		TableRow tr = (TableRow) findViewById(R.id.headrow);
+		tr.setBackgroundColor(Color.rgb(44, 140, 15));
 		TextView textname = (TextView) findViewById(R.id.txtMemName);
 		textname.setTextColor(Color.WHITE);
 		Typeface typeFace = Typeface.createFromAsset(getAssets(),
 				"fonts/MTCORSVA.TTF");
 		textname.setTypeface(typeFace);
-		/**/
 		String pictureurl = li.getMemberPictureURL() + mp_code + ".jpg";
 		ImageView iv = (ImageView) findViewById(R.id.imgMemImage);
 		imageView = iv;
 		GetXMLTask task = new GetXMLTask();
 		// Execute the task
 		task.execute(new String[] { pictureurl });
-		
+
 		String BioDataURL = li.GetMemBioDataURL(mp_code);
 		GetBioDataFeeds(BioDataURL);
 		String QuestionURL = li.getMemQuestionsURL(mp_code);
 		GetQuestionFeeds(QuestionURL);
+		getDebateFeeds(li.getDebateUrl(mp_code));
+		getGovtBillsFeeds(li.getGovtBillsUrl(mp_code));
 
-		String AssurancesURL = li.GetMemAssurancesURL(mp_code);
-		GetAssurancesFeeds(AssurancesURL);
-		// Toast.makeText(this, QuestionURL, Toast.LENGTH_SHORT).show();
 	}
-	
 
 	@Override
 	public boolean onTouchEvent(MotionEvent touchevent) {
 		switch (touchevent.getAction()) {
-	    // when user first touches the screen to swap
-	    case MotionEvent.ACTION_DOWN: {
-	        lastX = touchevent.getX();
-	        break;
-	    }
-	    case MotionEvent.ACTION_UP: {
-	        float currentX = touchevent.getX();
+		// when user first touches the screen to swap
+		case MotionEvent.ACTION_DOWN: {
+			lastX = touchevent.getX();
+			break;
+		}
+		case MotionEvent.ACTION_UP: {
+			float currentX = touchevent.getX();
 
-	        // if left to right swipe on screen
-	        if (lastX < currentX) {
+			// if left to right swipe on screen
+			if (lastX < currentX) {
 
-	            switchTabs(false);
-	        }
+				switchTabs(false);
+			}
 
-	        // if right to left swipe on screen
-	        if (lastX > currentX) {
-	            switchTabs(true);
-	        }
+			// if right to left swipe on screen
+			if (lastX > currentX) {
+				switchTabs(true);
+			}
 
-	        break;
-	    }
-	    }
-	    return false;
+			break;
+		}
+		}
+		return false;
 	}
 
 	private void switchTabs(boolean direction) {
 		if (direction) // true = move left
-        {
-            if (tabHost.getCurrentTab() == 0)
-                tabHost.setCurrentTab(tabHost.getTabWidget().getTabCount() - 1);
-            else
-                tabHost.setCurrentTab(tabHost.getCurrentTab() - 1);
-        } else
-        // move right
-        {
-            if (tabHost.getCurrentTab() != (tabHost.getTabWidget()
-                    .getTabCount() - 1))
-                tabHost.setCurrentTab(tabHost.getCurrentTab() + 1);
-            else
-                tabHost.setCurrentTab(0);
-        }
-		
-	}
+		{
+			if (tabHost.getCurrentTab() == 0)
+				tabHost.setCurrentTab(tabHost.getTabWidget().getTabCount() - 1);
+			else
+				tabHost.setCurrentTab(tabHost.getCurrentTab() - 1);
+		} else
+		// move right
+		{
+			if (tabHost.getCurrentTab() != (tabHost.getTabWidget()
+					.getTabCount() - 1))
+				tabHost.setCurrentTab(tabHost.getCurrentTab() + 1);
+			else
+				tabHost.setCurrentTab(0);
+		}
 
-	
+	}
 
 	@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 	public void BackCompatibility() {
@@ -173,19 +168,90 @@ public class TabMemberDetails extends Activity  {
 		return true;
 	}
 
+	private void getGovtBillsFeeds(String govtBillsUrl) {
+		GetGovtBillDataTask task = new GetGovtBillDataTask();
+		task.execute(govtBillsUrl);
+		Log.d("GovtBillsReader", Thread.currentThread().getName());
+
+	}
+
+	private class GetGovtBillDataTask extends
+			AsyncTask<String, Void, List<GovtBillRssItem>> {
+		@Override
+		protected List<GovtBillRssItem> doInBackground(String... urls) {
+
+			// Debug the task thread name
+			Log.d("GovtBillsReader", Thread.currentThread().getName());
+
+			try {
+				// Create RSS reader
+				GovtBillRssReader rssReader = new GovtBillRssReader(urls[0]);
+
+				// Parse RSS, get items
+				return rssReader.getItems();
+
+			} catch (Exception e) {
+				Log.e("RssReader", e.getMessage());
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(List<GovtBillRssItem> result) {
+
+			if (result != null) {
+
+				// Get a ListView from main view
+				ListView lv = (ListView) findViewById(R.id.lstgovtbills);
+
+				// Create a list adapter
+				final ArrayAdapter<GovtBillRssItem> adapter = new ArrayAdapter<GovtBillRssItem>(
+						local, android.R.layout.simple_list_item_1, result);
+				// Set list adapter for the ListView
+				if (adapter.getItem(0).getClass() != null) {
+					lv.setAdapter(adapter);
+
+					// Set list view item click listener
+					/*lv.setOnItemClickListener(new AssuListListener(result,
+							local));*/
+					EditText inputSearch = (EditText) findViewById(R.id.txtSearchAssu);
+					inputSearch.addTextChangedListener(new TextWatcher() {
+
+						@Override
+						public void onTextChanged(CharSequence cs, int arg1,
+								int arg2, int arg3) {
+							// When user changed the Text
+							adapter.getFilter().filter(cs);
+						}
+
+						@Override
+						public void beforeTextChanged(CharSequence arg0,
+								int arg1, int arg2, int arg3) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void afterTextChanged(Editable arg0) {
+							// TODO Auto-generated method stub
+						}
+					});
+				}
+			}
+
+		}
+	}
+
 	public void GetQuestionFeeds(String link) {
-		// Toast.makeText(local, "Please Wait..Questions are Loading",
-		// Toast.LENGTH_LONG).show();
 		GetMQLRSSDataTask task = new GetMQLRSSDataTask();
 
 		task.execute(link);
-
-		// Debug the thread name
 		Log.d("RssReader", Thread.currentThread().getName());
 	}
 
-	public void GetAssurancesFeeds(String link) {
-		GetAssuRSSDataTask task = new GetAssuRSSDataTask();
+	public void getDebateFeeds(String link) {
+		GetDebateRssDataTask task = new GetDebateRssDataTask();
 		task.execute(link);
 		Log.d("RssReader", Thread.currentThread().getName());
 	}
@@ -221,69 +287,70 @@ public class TabMemberDetails extends Activity  {
 
 		@Override
 		protected void onPostExecute(List<MBRssItem> result) {
-			// Get a ListView from main view
-			// ListView lv = (ListView)findViewById(R.id.lstQuestions);
-			MBRssItem ri = result.get(0);
-			String variable;
-			TextView tv = (TextView) findViewById(R.id.txtMemDOB);
-			variable = ri.getDOB();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			/**/tv = (TextView) findViewById(R.id.txtMemEduQua);
-			variable = ri.getEducatQualification();
-			if (variable != null) {
-				tv.setText(variable);
-			}/**/
-			tv = (TextView) findViewById(R.id.txtMemEmail);
-			variable = ri.getEmailID();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemFName);
-			variable = ri.getFatherName();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemMName);
-			variable = ri.getMotherName();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemName);
-			variable = ri.getName();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemParty);
-			variable = ri.getPartyName();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			/**/tv = (TextView) findViewById(R.id.txtMemPosHeld);
-			variable = ri.getPositionHeld();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemProfession);
-			variable = ri.getProfession();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemSocialAct);
-			variable = ri.getSocialActivity();
-			if (variable != null) {
-				tv.setText(variable);
-			}/**/
-			tv = (TextView) findViewById(R.id.txtMemSpouseName);
-			variable = ri.getSpouseName();
-			if (variable != null) {
-				tv.setText(variable);
-			}
-			tv = (TextView) findViewById(R.id.txtMemState);
-			variable = ri.getStateName();
-			if (variable != null) {
-				tv.setText(variable);
+			if (result != null) {
+
+				MBRssItem ri = result.get(0);
+				String variable;
+				TextView tv = (TextView) findViewById(R.id.txtMemDOB);
+				variable = ri.getDOB();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				/**/tv = (TextView) findViewById(R.id.txtMemEduQua);
+				variable = ri.getEducatQualification();
+				if (variable != null) {
+					tv.setText(variable);
+				}/**/
+				tv = (TextView) findViewById(R.id.txtMemEmail);
+				variable = ri.getEmailID();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemFName);
+				variable = ri.getFatherName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemMName);
+				variable = ri.getMotherName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemName);
+				variable = ri.getName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemParty);
+				variable = ri.getPartyName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				/**/tv = (TextView) findViewById(R.id.txtMemPosHeld);
+				variable = ri.getPositionHeld();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemProfession);
+				variable = ri.getProfession();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemSocialAct);
+				variable = ri.getSocialActivity();
+				if (variable != null) {
+					tv.setText(variable);
+				}/**/
+				tv = (TextView) findViewById(R.id.txtMemSpouseName);
+				variable = ri.getSpouseName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
+				tv = (TextView) findViewById(R.id.txtMemState);
+				variable = ri.getStateName();
+				if (variable != null) {
+					tv.setText(variable);
+				}
 			}
 
 		}
@@ -313,55 +380,59 @@ public class TabMemberDetails extends Activity  {
 
 		@Override
 		protected void onPostExecute(List<MQLRssItem> result) {
-			// Get a ListView from main view
-			ListView lv = (ListView) findViewById(R.id.lstQuestions);
 
-			// Create a list adapter
-			final ArrayAdapter<MQLRssItem> adapter = new ArrayAdapter<MQLRssItem>(
-					local, android.R.layout.simple_list_item_1, result);
-			// Set list adapter for the ListView
-			if (adapter.getItem(0).getqid() != null) {
-				lv.setAdapter(adapter);
+			if (result != null) {
 
-				// Set list view item click listener
-				lv.setOnItemClickListener(new MQLListListener(result, local));
-				EditText inputSearch = (EditText) findViewById(R.id.txtSearchQues);
-				inputSearch.addTextChangedListener(new TextWatcher() {
+				// Get a ListView from main view
+				ListView lv = (ListView) findViewById(R.id.lstQuestions);
 
-					@Override
-					public void onTextChanged(CharSequence cs, int arg1,
-							int arg2, int arg3) {
-						// When user changed the Text
-						adapter.getFilter().filter(cs);
-					}
+				// Create a list adapter
+				final ArrayAdapter<MQLRssItem> adapter = new ArrayAdapter<MQLRssItem>(
+						local, android.R.layout.simple_list_item_1, result);
+				// Set list adapter for the ListView
+				if (adapter.getItem(0).getqid() != null) {
+					lv.setAdapter(adapter);
 
-					@Override
-					public void beforeTextChanged(CharSequence arg0, int arg1,
-							int arg2, int arg3) {
-						// TODO Auto-generated method stub
+					// Set list view item click listener
+					lv.setOnItemClickListener(new MQLListListener(result, local));
+					EditText inputSearch = (EditText) findViewById(R.id.txtSearchQues);
+					inputSearch.addTextChangedListener(new TextWatcher() {
 
-					}
+						@Override
+						public void onTextChanged(CharSequence cs, int arg1,
+								int arg2, int arg3) {
+							// When user changed the Text
+							adapter.getFilter().filter(cs);
+						}
 
-					@Override
-					public void afterTextChanged(Editable arg0) {
-						// TODO Auto-generated method stub
-					}
-				});
+						@Override
+						public void beforeTextChanged(CharSequence arg0,
+								int arg1, int arg2, int arg3) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void afterTextChanged(Editable arg0) {
+							// TODO Auto-generated method stub
+						}
+					});
+				}
 			}
 		}
 	}
 
-	private class GetAssuRSSDataTask extends
-			AsyncTask<String, Void, List<AssuRssItem>> {
+	private class GetDebateRssDataTask extends
+			AsyncTask<String, Void, List<DebateRssItem>> {
 		@Override
-		protected List<AssuRssItem> doInBackground(String... urls) {
+		protected List<DebateRssItem> doInBackground(String... urls) {
 
 			// Debug the task thread name
 			Log.d("LoMRssReader", Thread.currentThread().getName());
 
 			try {
 				// Create RSS reader
-				AssuRssReader rssReader = new AssuRssReader(urls[0]);
+				DebateRssReader rssReader = new DebateRssReader(urls[0]);
 
 				// Parse RSS, get items
 				return rssReader.getItems();
@@ -374,47 +445,48 @@ public class TabMemberDetails extends Activity  {
 		}
 
 		@Override
-		protected void onPostExecute(List<AssuRssItem> result) {
-			// Get a ListView from main view
-			ListView lv = (ListView) findViewById(R.id.lstAssurances);
+		protected void onPostExecute(List<DebateRssItem> result) {
 
-			// Create a list adapter
-			final ArrayAdapter<AssuRssItem> adapter = new ArrayAdapter<AssuRssItem>(
-					local, android.R.layout.simple_list_item_1, result);
-			// Set list adapter for the ListView
-			if (adapter.getItem(0).getqid() != null) {
-				lv.setAdapter(adapter);
+			if (result != null) {
 
-				// Set list view item click listener
-				lv.setOnItemClickListener(new AssuListListener(result, local));
-				EditText inputSearch = (EditText) findViewById(R.id.txtSearchAssu);
-				inputSearch.addTextChangedListener(new TextWatcher() {
+				// Get a ListView from main view
+				ListView lv = (ListView) findViewById(R.id.lstAssurances);
 
-					@Override
-					public void onTextChanged(CharSequence cs, int arg1,
-							int arg2, int arg3) {
-						// When user changed the Text
-						adapter.getFilter().filter(cs);
-					}
+				// Create a list adapter
+				final ArrayAdapter<DebateRssItem> adapter = new ArrayAdapter<DebateRssItem>(
+						local, android.R.layout.simple_list_item_1, result);
+				// Set list adapter for the ListView
+				if (adapter.getItem(0).getDebateid() != null) {
+					lv.setAdapter(adapter);
 
-					@Override
-					public void beforeTextChanged(CharSequence arg0, int arg1,
-							int arg2, int arg3) {
-						// TODO Auto-generated method stub
+					// Set list view item click listener
+					lv.setOnItemClickListener(new AssuListListener(result,
+							local));
+					EditText inputSearch = (EditText) findViewById(R.id.txtSearchAssu);
+					inputSearch.addTextChangedListener(new TextWatcher() {
 
-					}
+						@Override
+						public void onTextChanged(CharSequence cs, int arg1,
+								int arg2, int arg3) {
+							// When user changed the Text
+							adapter.getFilter().filter(cs);
+						}
 
-					@Override
-					public void afterTextChanged(Editable arg0) {
-						// TODO Auto-generated method stub
-					}
-				});
+						@Override
+						public void beforeTextChanged(CharSequence arg0,
+								int arg1, int arg2, int arg3) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void afterTextChanged(Editable arg0) {
+							// TODO Auto-generated method stub
+						}
+					});
+				}
 			}
-			// Toast.makeText(local, "Questions Loaded",
-			// Toast.LENGTH_LONG).show();
-			// HideMenu();
-			// Home hm = new Home();
-			// hm.SetItems(result);
+
 		}
 	}
 

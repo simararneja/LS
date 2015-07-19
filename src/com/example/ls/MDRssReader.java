@@ -4,12 +4,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 
-/**
- * Class reads RSS data.
- * 
- * @author ITCuties
- *
- */
+
 public class MDRssReader {
 	
 	private String rssUrl;

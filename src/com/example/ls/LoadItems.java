@@ -102,8 +102,8 @@ public class LoadItems extends Activity {
 				+ MP_Code;
 	}
 
-	public String GetMemAssurancesURL(String MP_Code) {
-		return urlStart + "member_debates.aspx?member_iD=" + MP_Code;
+	public String getDebateUrl(String MP_Code) {
+		return urlStart + "member_debates.aspx?member_id=" + MP_Code;
 	}
 
 	public String GetMemBioDataURL(String MP_Code) {
@@ -164,6 +164,12 @@ public class LoadItems extends Activity {
 	public String getMembersLoginUrl() {
 		return "http://mpls.nic.in";
 	}
+
+	public String getGovtBillsUrl(String mp_code) {
+		return urlStart + "member_govtBills.aspx?member_iD=" + mp_code;
+	}
+
+	
 
 	
 }

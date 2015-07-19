@@ -12,12 +12,12 @@ import android.widget.AdapterView.OnItemClickListener;
 public class AssuListListener implements OnItemClickListener {
     // Our listener will contain a reference to the list of RSS Items
     // List item's reference
-    List<AssuRssItem> listItems;
+    List<DebateRssItem> listItems;
     // And a reference to a calling activity
     // Calling activity reference
     Activity activity;
     /** We will set those references in our constructor.*/
-    public AssuListListener(List<AssuRssItem> aListItems, Activity anActivity) {
+    public AssuListListener(List<DebateRssItem> aListItems, Activity anActivity) {
         listItems = aListItems;
         activity  = anActivity;
     }
@@ -28,7 +28,7 @@ public class AssuListListener implements OnItemClickListener {
         // We create an Intent which is going to display data
         Intent i = new Intent(Intent.ACTION_VIEW);
         // We have to set data for our new Intent
-        AssuRssItem ar = (AssuRssItem)adapter.getItemAtPosition(pos);
+        DebateRssItem ar = (DebateRssItem)adapter.getItemAtPosition(pos);
         i.setData(Uri.parse(ar.getlink()));
         // And start activity with our Intent
         activity.startActivity(i);
